@@ -2,6 +2,8 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net; img-src 'self' data:; connect-src https://api.github.com; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>허피(허리피라우) · 거북목 잡아주는 도트 펫</title>
 <meta name="description" content="자세가 무너지면 화면 구석의 도트 펫이 바로 알려줘요. 잘 지키면 진화, 안 지키면 흑화.">
@@ -9,7 +11,7 @@
 <meta property="og:description" content="자세가 무너지면 펫이 먼저 알아봐요. 잘 지키면 진화, 안 지키면 흑화.">
 <meta property="og:image" content="sprites/stagep5.png">
 <link rel="icon" href="sprites/stagep0.png">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@2.40.3/dist/galmuri.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@2.40.3/dist/galmuri.css" integrity="sha384-55uQGdclWjXwWY0yHikdtcfcat9pPBqMBCVFIeWjRhvPPUYbpJLhIJegzTcFoh/A" crossorigin="anonymous">
 <style>
   /* 본문 글꼴 Freesentation (SIL OFL). 파일이 바뀌지 않게 커밋을 고정해서 불러온다. */
   @font-face { font-family: "Freesentation"; font-weight: 400; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/Freesentation/freesentation@98f6b841fca55a23fbb0f9eb91acda0e16a676ea/woff2/Freesentation-4Regular.woff2") format("woff2"); }
@@ -259,20 +261,20 @@
   <section id="how">
     <div class="wrap">
       <h2>지켜보는 방법</h2>
-      <p class="sub">정해진 기준 대신 <b>내가 편하고 바르게 앉은 자세</b>를 기억해요. 거기서 나빠질 때만 알려주고 허리를 더 펴거나 등받이에 기대는 건 그냥 둡니다.</p>
+      <p class="sub"><b>내가 편하고 바르게 앉은 자세</b>를 기억해요. 나빠질 때만 알려주고 허리를 더 펴거나 등받이에 기대는 건 그냥 둘 거니 걱정 마세요.</p>
       <div class="steps">
-        <div class="card"><img class="px" src="sprites/idle-a.png" alt=""><div class="n">01</div><h3>바른 자세 기억</h3><p>바르게 앉아서 펫을 한 번 누르면 끝.</p></div>
-        <div class="card"><img class="px" src="sprites/read-a.png" alt=""><div class="n">02</div><h3>90초마다 살짝 확인</h3><p>카메라는 몇 초만 켜졌다 꺼져요. 그동안 펫은 딴짓 중.</p></div>
-        <div class="card"><img class="px" src="sprites/alert-a.png" alt=""><div class="n">03</div><h3>무너지면 바로 코칭</h3><p>거북목인지 고개를 숙인 건지 화면에 붙은 건지 구분해서 고치는 법까지 알려줘요.</p></div>
-        <div class="card"><img class="px" src="sprites/hold-a.png" alt=""><div class="n">04</div><h3>5초 버티면 경험치</h3><p>살짝 움직이는 걸로는 부족해요. 바른 자세로 5초를 버텨야 인정.</p></div>
+        <div class="card"><img class="px" src="sprites/idle-a.png" alt=""><div class="n">01</div><h3>바른 자세 기억</h3><p>바르게 앉은 뒤, 펫을 눌러서 내 자세를 기억시키세요.</p></div>
+        <div class="card"><img class="px" src="sprites/read-a.png" alt=""><div class="n">02</div><h3>90초마다 살짝 확인</h3><p>카메라를 잠깐 켜서 자세를 확인할게요.</p></div>
+        <div class="card"><img class="px" src="sprites/alert-a.png" alt=""><div class="n">03</div><h3>자세가 무너지면 바로 코칭</h3><p>자세가 안 좋으면 바로 지적할 거예요.</p></div>
+        <div class="card"><img class="px" src="sprites/hold-a.png" alt=""><div class="n">04</div><h3>5초 버티면 경험치</h3><p>살짝 움직이는 걸로는 부족해요. 바른 자세를 꾸준히 유지해야 해요.</p></div>
       </div>
     </div>
   </section>
 
   <section id="evolve">
     <div class="wrap">
-      <h2>잘 지키면 천사, 안 지키면 마왕</h2>
-      <p class="sub">잘 지킬수록 애정 표현이 늘고, 경고를 흘려듣거나 스트레칭을 건너뛰면 경험치가 깎여요. 흑화할수록 투정이 심해지고 판정도 예민해집니다.</p>
+      <h2>하는 거에 따라 천사가 될 수도 있고 악마가 될 수도 있어</h2>
+      <p class="sub">잘 지킬수록 애정 표현이 늘고, 경고를 흘려듣거나 스트레칭을 건너뛰면 경험치가 깎여요. 흑화할수록 투정이 심해지고 판정도 예민해지니까 조심하세요!</p>
       <div class="evo">
         <div class="evo-pet">
           <img class="px" data-evo-img src="sprites/stagep0.png" alt="">
@@ -292,12 +294,12 @@
   <section id="features">
     <div class="wrap">
       <h2>책상 위의 작은 친구</h2>
-      <p class="sub">자세만 잡는 게 아니라 같이 지내요.</p>
+      <p class="sub">바른 자세를 유지하며 오래오래 함께해요</p>
       <div class="grid2">
-        <div class="feature"><img class="px" src="sprites/stretch-a.png" alt=""><div><h3>30분마다 스트레칭</h3><p>기지개와 목 스트레칭을 번갈아 시켜요. 진짜 했는지는 카메라로 확인.</p></div></div>
-        <div class="feature"><img class="px" src="sprites/whip-b.png" alt=""><div><h3>무시하면 찰싹</h3><p>경고를 흘려듣거나 스트레칭을 건너뛰면 채찍이 나오고 경험치가 깎여요.</p></div></div>
-        <div class="feature"><img class="px" src="sprites/held-a.png" alt=""><div><h3>들어서 옮기기</h3><p>잡아서 원하는 곳에 내려놓으면 거기서 돌아다녀요. 너무 높이서 놓으면 어지러워합니다.</p></div></div>
-        <div class="feature"><img class="px" src="sprites/rest-a.png" alt=""><div><h3>잠깐 쉬기</h3><p>회의 중이면 펫을 누르고 쉬는 시간을 골라요. 그동안은 커피만 마셔요.</p></div></div>
+        <div class="feature"><img class="px" src="sprites/stretch-a.png" alt=""><div><h3>주기적인 스트레칭</h3><p>스트레칭을 꾸준히 시킬 거예요. 계속 체크할 거니까 피해 갈 생각 마세요.</p></div></div>
+        <div class="feature"><img class="px" src="sprites/whip-b.png" alt=""><div><h3>무시하면 화내요</h3><p>경고를 흘려듣거나 스트레칭을 건너뛰면 경험치가 깎여요.</p></div></div>
+        <div class="feature"><img class="px" src="sprites/held-a.png" alt=""><div><h3>들거나 쓰다듬어 보세요</h3><p>잡아서 원하는 위치에 놓거나 쓰다듬을 수 있어요. 많이 사랑해 주세요.</p></div></div>
+        <div class="feature"><img class="px" src="sprites/rest-a.png" alt=""><div><h3>잠깐 쉬기</h3><p>잠깐 자리를 비워야 하면 펫을 클릭해 휴식을 취할 수 있어요.</p></div></div>
       </div>
     </div>
   </section>
@@ -357,118 +359,6 @@
   </div>
 </footer>
 
-<script>
-(() => {
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const S = n => `sprites/${n}.png`;
-
-  // 미리 불러와서 프레임이 바뀔 때 깜빡이지 않게
-  ["idle", "alert", "hold", "happy", "whip", "stretch", "rest"].forEach(n => ["a", "b"].forEach(f => { new Image().src = S(`${n}-${f}`); }));
-
-  // 히어로: 경고 → 유지 → 칭찬 → … → 무시 → 채찍
-  const scenes = [
-    { pose: "alert", say: "거북목 나왔어요!\n턱 당기고 목은 뒤로", ms: 2600 },
-    { pose: "hold", say: "그대로 5초만!", ms: 900 },
-    { pose: "hold", say: "그대로 3초만!", ms: 900 },
-    { pose: "hold", say: "그대로 1초만!", ms: 900 },
-    { pose: "happy", say: "그거예요!", ms: 2200, xp: "+10 XP" },
-    { pose: "idle", say: null, ms: 1800 },
-    { pose: "stretch", say: "스트레칭할 시간\n두 팔 머리 위로 쭉", ms: 2600 },
-    { pose: "whip", say: "건너뛰면 몸 굳어요\n다음엔 꼭 해요", ms: 2400, xp: "-12 XP" },
-    { pose: "rest", say: "30분 쉴게요", ms: 2400 },
-  ];
-  const img = document.querySelector("[data-hero-img]");
-  const bubble = document.querySelector("[data-hero-bubble]");
-  const xp = document.querySelector("[data-hero-xp]");
-  let scene = 0, frame = 0, until = 0;
-  function show(i) {
-    const s = scenes[i];
-    bubble.classList.toggle("hide", !s.say);
-    if (s.say) bubble.textContent = s.say;
-    xp.classList.remove("on", "minus");
-    if (s.xp) {
-      xp.textContent = s.xp;
-      xp.classList.toggle("minus", s.xp.startsWith("-"));
-      requestAnimationFrame(() => xp.classList.add("on"));
-    }
-    until = performance.now() + s.ms;
-  }
-  show(0);
-  if (!reduce) {
-    setInterval(() => {
-      frame ^= 1;
-      img.src = S(`${scenes[scene].pose}-${frame ? "b" : "a"}`);
-      if (performance.now() > until) { scene = (scene + 1) % scenes.length; show(scene); }
-    }, 250);
-  }
-
-  // 진화 · 흑화 슬라이더
-  const stages = {
-    5:  ["천사", "+5단계", "\"뽀뽀!\"", "끝까지 잘 지킨 사람만 만나요. 이미 반했대요."],
-    4:  ["왕관", "+4단계", "\"나 안아\"", "금빛 몸에 왕관. 쓰다듬으면 하트가 떠요."],
-    3:  ["반짝", "+3단계", "\"안아줘요\"", "몸이 밝아지고 애정 표현이 시작돼요."],
-    2:  ["새싹", "+2단계", "\"저 좋아요?\"", "머리에 새싹이 돋아요."],
-    1:  ["초롱", "+1단계", "\"헤헤 간지러워요\"", "눈이 초롱초롱."],
-    0:  ["기본", "시작 단계", "\"거북목 나왔어요! 턱 당기고 목은 뒤로\"", "모두 여기서 시작."],
-    "-1": ["삐짐", "-1단계", "\"왜 찔러! 참나\"", "눈매가 사나워지고 말투가 딱딱해져요."],
-    "-2": ["투덜", "-2단계", "\"거북목 또 나왔어! 바보야\"", "몸이 어두워지고 바보야와 메롱이 나와요."],
-    "-3": ["꼬질", "-3단계", "\"으이구! 거북목 또 나왔어\"", "얼룩이 생기고 잔소리가 늘어요."],
-    "-4": ["뿔난", "-4단계", "\"건들지 마!\"", "뿔이 나요. 손대면 화내고 한 번만 걸려도 바로 경고."],
-    "-5": ["마왕", "-5단계", "\"바보야 미워! 그래서 내가 이 모양이잖아\"", "바른 자세로만 되돌릴 수 있어요."],
-  };
-  const range = document.querySelector("[data-evo-range]");
-  const ticks = document.querySelector("[data-evo-ticks]");
-  const file = n => S(`stage${n < 0 ? "m" : "p"}${Math.abs(n)}`);
-  for (let n = -5; n <= 5; n++) {
-    new Image().src = file(n);
-    const b = document.createElement("button");
-    b.type = "button";
-    b.setAttribute("aria-label", `${n > 0 ? "+" + n : n}단계 ${stages[n][0]}`);
-    b.innerHTML = `<img class="px" src="${file(n)}" alt=""><span>${n > 0 ? "+" + n : n}</span>`;
-    b.addEventListener("click", () => { range.value = n; setStage(n); });
-    ticks.appendChild(b);
-  }
-  function setStage(n) {
-    const [name, tag, quote, desc] = stages[n];
-    document.querySelector("[data-evo-img]").src = file(n);
-    document.querySelector("[data-evo-name]").textContent = `${n > 0 ? "+" + n : n} ${name}`;
-    document.querySelector("[data-evo-tag]").textContent = tag;
-    document.querySelector("[data-evo-quote]").textContent = quote;
-    document.querySelector("[data-evo-desc]").textContent = desc;
-    [...ticks.children].forEach((b, i) => b.setAttribute("aria-current", String(i - 5 === n)));
-  }
-  range.addEventListener("input", () => setStage(Number(range.value)));
-  setStage(0);
-
-  // Windows 면 Windows 설치 파일을 앞에, 휴대폰이면 PC에서 받으라고 안내한다
-  const ua = navigator.userAgent;
-  const base = "https://github.com/aueoj/huppy/releases/latest/download/";
-  const isWin = /Windows/.test(ua);
-  const os = isWin
-    ? { file: "Huppy-windows-setup.exe", label: "Windows용 다운로드", meta: "Windows 10·11 (64비트)" }
-    : { file: "Huppy-mac.zip", label: "Mac용 다운로드", meta: "macOS 14 이상 · Apple 실리콘과 인텔" };
-  if (isWin) {
-    document.querySelectorAll('a[data-dl][href*="/releases/"]').forEach(a => { a.href = base + os.file; });
-    const alt = document.querySelector("[data-dl-alt]");
-    alt.href = base + "Huppy-mac.zip";
-    alt.textContent = "Mac용 다운로드";
-  }
-  const label = /iPhone|iPad|Android/.test(ua) ? "PC에서 받아주세요" : os.label;
-  document.querySelectorAll("[data-dl-label]").forEach(el => { el.textContent = label; });
-
-  // 최신 버전·크기
-  fetch("https://api.github.com/repos/aueoj/huppy/releases/latest")
-    .then(r => r.ok ? r.json() : Promise.reject())
-    .then(rel => {
-      const asset = (rel.assets || []).find(a => a.name === os.file);
-      document.querySelector("[data-version]").textContent = rel.tag_name;
-      if (asset) {
-        const mb = (asset.size / 1048576).toFixed(1);
-        document.querySelector("[data-meta]").textContent = `${rel.tag_name} · ${mb}MB · ${os.meta} · 무료`;
-      }
-    })
-    .catch(() => {});
-})();
-</script>
+<script src="site.js"></script>
 </body>
 </html>

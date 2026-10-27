@@ -127,6 +127,9 @@
     "stretchArms" : [
       "스트레칭할 시간\n두 팔 머리 위로 쭉"
     ],
+    "stretchChinTuck" : [
+      "턱 당기기\n턱을 뒤로 쏙! 이중턱 만들듯이"
+    ],
     "stretchDone" : [
       "시원하죠?",
       "스트레칭 끝!"
@@ -134,14 +137,32 @@
     "stretchHold" : [
       "그대로 {seconds}초"
     ],
+    "stretchLookUp" : [
+      "거북목 풀기\n천장을 보듯 고개를 뒤로 천천히"
+    ],
     "stretchNeckFirst" : [
       "목 스트레칭할 시간\n한쪽으로 천천히 기울이기"
     ],
     "stretchNeckSecond" : [
       "이번엔 반대쪽"
     ],
+    "stretchSideFirst" : [
+      "옆구리 늘리기\n한 팔 들고 몸을 옆으로 기울여요"
+    ],
+    "stretchSideSecond" : [
+      "반대쪽도"
+    ],
     "stretchSkipped" : [
       "건너뛰면 몸 굳어요\n다음엔 꼭 해요"
+    ],
+    "stretchTurnFirst" : [
+      "고개 돌리기 할 시간\n어깨 너머를 보듯 한쪽으로 천천히"
+    ],
+    "stretchTurnSecond" : [
+      "이번엔 반대쪽"
+    ],
+    "stretchWrists" : [
+      "손목 스트레칭\n두 팔 앞으로 뻗고 손끝은 위로"
     ],
     "updateAvailable" : [
       "새 버전 {version} 나왔어요\n저를 눌러서 업데이트"
@@ -432,11 +453,17 @@
       "stretchArms" : [
         "스트레칭! 안 하면 나 더 까매진다"
       ],
+      "stretchChinTuck" : [
+        "턱 당겨! 이중턱 만들기"
+      ],
       "stretchDone" : [
         "흥 좀 시원하네\n고맙다는 건 아니고"
       ],
       "stretchHold" : [
         "{seconds}초"
+      ],
+      "stretchLookUp" : [
+        "천장 봐! 고개 뒤로 천천히"
       ],
       "stretchNeckFirst" : [
         "목 기울여! 천천히"
@@ -444,8 +471,23 @@
       "stretchNeckSecond" : [
         "반대!"
       ],
+      "stretchSideFirst" : [
+        "옆구리! 한 팔 들고 옆으로"
+      ],
+      "stretchSideSecond" : [
+        "반대쪽도"
+      ],
       "stretchSkipped" : [
         "또 건너뛰었어! 미워 미워"
+      ],
+      "stretchTurnFirst" : [
+        "고개 돌려! 한쪽으로 천천히"
+      ],
+      "stretchTurnSecond" : [
+        "반대쪽도"
+      ],
+      "stretchWrists" : [
+        "손목! 두 팔 앞으로 손끝은 위로"
       ]
     },
     "devoted" : {
@@ -610,11 +652,17 @@
       "stretchArms" : [
         "스트레칭! 팔 올려 당장"
       ],
+      "stretchChinTuck" : [
+        "턱 당겨! 이중턱 만들기"
+      ],
       "stretchDone" : [
         "흥 조금 시원하네"
       ],
       "stretchHold" : [
         "{seconds}초 버텨"
+      ],
+      "stretchLookUp" : [
+        "천장 봐! 고개 뒤로 천천히"
       ],
       "stretchNeckFirst" : [
         "목 기울여! 천천히"
@@ -622,8 +670,23 @@
       "stretchNeckSecond" : [
         "반대!"
       ],
+      "stretchSideFirst" : [
+        "옆구리! 한 팔 들고 옆으로"
+      ],
+      "stretchSideSecond" : [
+        "반대쪽도"
+      ],
       "stretchSkipped" : [
         "또 건너뛰었어! 미워"
+      ],
+      "stretchTurnFirst" : [
+        "고개 돌려! 한쪽으로 천천히"
+      ],
+      "stretchTurnSecond" : [
+        "반대쪽도"
+      ],
+      "stretchWrists" : [
+        "손목! 두 팔 앞으로 손끝은 위로"
       ]
     },
     "pouty" : {
@@ -705,11 +768,17 @@
       "stretchArms" : [
         "스트레칭 시간! 팔 쭉 올려"
       ],
+      "stretchChinTuck" : [
+        "턱 당겨! 이중턱 만들기"
+      ],
       "stretchDone" : [
         "됐어! 좀 낫지?"
       ],
       "stretchHold" : [
         "그대로 {seconds}초"
+      ],
+      "stretchLookUp" : [
+        "천장 봐! 고개 뒤로 천천히"
       ],
       "stretchNeckFirst" : [
         "목 스트레칭! 한쪽으로 천천히"
@@ -717,8 +786,23 @@
       "stretchNeckSecond" : [
         "반대쪽도"
       ],
+      "stretchSideFirst" : [
+        "옆구리! 한 팔 들고 옆으로"
+      ],
+      "stretchSideSecond" : [
+        "반대쪽도"
+      ],
       "stretchSkipped" : [
         "안 했지? 다음엔 해"
+      ],
+      "stretchTurnFirst" : [
+        "고개 돌려! 한쪽으로 천천히"
+      ],
+      "stretchTurnSecond" : [
+        "반대쪽도"
+      ],
+      "stretchWrists" : [
+        "손목! 두 팔 앞으로 손끝은 위로"
       ]
     },
     "rude" : {
@@ -747,7 +831,8 @@
       "issues" : {
         "forwardHead" : {
           "warning" : [
-            "으이구! 거북목 또 나왔어"
+            "으이구! 거북목 또 나왔어",
+            "거북목 집어넣어라! 으휴"
           ]
         },
         "headDown" : {
@@ -802,11 +887,17 @@
       "stretchArms" : [
         "스트레칭! 팔 올려 지금"
       ],
+      "stretchChinTuck" : [
+        "턱 당겨! 이중턱 만들기"
+      ],
       "stretchDone" : [
         "흥 좀 낫네"
       ],
       "stretchHold" : [
         "{seconds}초 버텨"
+      ],
+      "stretchLookUp" : [
+        "천장 봐! 고개 뒤로 천천히"
       ],
       "stretchNeckFirst" : [
         "목 옆으로 기울여! 천천히"
@@ -814,9 +905,24 @@
       "stretchNeckSecond" : [
         "반대쪽"
       ],
+      "stretchSideFirst" : [
+        "옆구리! 한 팔 들고 옆으로"
+      ],
+      "stretchSideSecond" : [
+        "반대쪽도"
+      ],
       "stretchSkipped" : [
         "또 안 했어! 미워",
         "메롱 이제 몰라"
+      ],
+      "stretchTurnFirst" : [
+        "고개 돌려! 한쪽으로 천천히"
+      ],
+      "stretchTurnSecond" : [
+        "반대쪽도"
+      ],
+      "stretchWrists" : [
+        "손목! 두 팔 앞으로 손끝은 위로"
       ]
     },
     "sassy" : {
@@ -900,11 +1006,17 @@
       "stretchArms" : [
         "스트레칭! 팔 쭉 올려"
       ],
+      "stretchChinTuck" : [
+        "턱 당겨! 이중턱 만들기"
+      ],
       "stretchDone" : [
         "흥 좀 낫지?"
       ],
       "stretchHold" : [
         "그대로 {seconds}초"
+      ],
+      "stretchLookUp" : [
+        "천장 봐! 고개 뒤로 천천히"
       ],
       "stretchNeckFirst" : [
         "목 스트레칭! 한쪽으로 천천히"
@@ -912,9 +1024,24 @@
       "stretchNeckSecond" : [
         "반대쪽도"
       ],
+      "stretchSideFirst" : [
+        "옆구리! 한 팔 들고 옆으로"
+      ],
+      "stretchSideSecond" : [
+        "반대쪽도"
+      ],
       "stretchSkipped" : [
         "안 했지? 바보야",
         "메롱 몸 굳어도 몰라"
+      ],
+      "stretchTurnFirst" : [
+        "고개 돌려! 한쪽으로 천천히"
+      ],
+      "stretchTurnSecond" : [
+        "반대쪽도"
+      ],
+      "stretchWrists" : [
+        "손목! 두 팔 앞으로 손끝은 위로"
       ]
     },
     "sweet" : {
