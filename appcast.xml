@@ -3,6 +3,15 @@
   <channel>
     <title>PosturePet</title>
     <item>
+      <title>0.1.2</title>
+      <pubDate>Tue, 27 Oct 2026 20:38:12 +0900</pubDate>
+      <sparkle:version>4</sparkle:version>
+      <sparkle:shortVersionString>0.1.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>자세 판정을 인체공학 기준에 맞춰 바름·주의·무너짐 3단계로. 화면 거리 추정, 오늘 자세 점수, 쓰다듬기 손</p>]]></description>
+      <enclosure url="https://github.com/aueoj/posture-pet/releases/download/v0.1.2/PosturePet-0.1.2.zip" sparkle:edSignature="I0RVUHJX9HG5ahHnx8vmYO9Gt+iEuZJES38vXqchJnBoKWcwCE4Mrwah3ZaKn2bOe5e8Fwdr2jPXwzisWMN8Cg==" length="1519018" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>0.1.1</title>
       <pubDate>Tue, 27 Oct 2026 00:50:32 +0900</pubDate>
       <sparkle:version>3</sparkle:version>
