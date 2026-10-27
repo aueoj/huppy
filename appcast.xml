@@ -3,6 +3,15 @@
   <channel>
     <title>PosturePet</title>
     <item>
+      <title>0.1.6</title>
+      <pubDate>Wed, 28 Oct 2026 00:35:01 +0900</pubDate>
+      <sparkle:version>8</sparkle:version>
+      <sparkle:shortVersionString>0.1.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>이름이 허피로 바뀌었고, 의자 스트레칭 5가지가 늘었어요. 바른 자세는 바르게 찍힐 때까지 다시 찍어요.</p>]]></description>
+      <enclosure url="https://github.com/aueoj/posture-pet/releases/download/v0.1.6/Huppy-0.1.6.zip" sparkle:edSignature="rT/Yer6GUrSzOiaLwZDBPjD8PHltzw6C4cS1NZhs8YWg+H1FZEMzvdaE6b3Q9cHLqH7QCqyZjgWcx2A90bEaBw==" length="1568302" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>0.1.5</title>
       <pubDate>Wed, 28 Oct 2026 00:13:33 +0900</pubDate>
       <sparkle:version>7</sparkle:version>
