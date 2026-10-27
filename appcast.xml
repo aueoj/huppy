@@ -3,6 +3,15 @@
   <channel>
     <title>PosturePet</title>
     <item>
+      <title>0.1.5</title>
+      <pubDate>Wed, 28 Oct 2026 00:13:33 +0900</pubDate>
+      <sparkle:version>7</sparkle:version>
+      <sparkle:shortVersionString>0.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>바른 자세를 기억하기 전에 자세를 확인하고 3·2·1 세고 찍어요. 자리를 비웠을 땐 경험치가 깎이지 않아요.</p>]]></description>
+      <enclosure url="https://github.com/aueoj/posture-pet/releases/download/v0.1.5/PosturePet-0.1.5.zip" sparkle:edSignature="0QG9WjzrjYomrT0jlaoum3gJOffeMzK3qMHvp+U/BDPVLXH2EWqZp4uS8VhXSzwlk1sB0aWmo4F0gkJEg3OyAg==" length="1552855" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>0.1.4</title>
       <pubDate>Tue, 27 Oct 2026 23:19:50 +0900</pubDate>
       <sparkle:version>6</sparkle:version>
