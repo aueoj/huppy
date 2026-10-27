@@ -234,11 +234,11 @@
         <h1>자세가 무너지면<br><em>펫이 먼저 알아봐요</em></h1>
         <p class="lead">노트북 카메라로 틈틈이 자세를 보다가 거북목이 보이면 바로 말을 걸어요. 잘 지키면 펫이 자라고 계속 무시하면 점점 삐뚤어집니다.</p>
         <div class="dl" id="download">
-          <a class="btn" data-dl href="https://github.com/aueoj/posture-pet/releases/latest/download/Huppy-mac.zip">
+          <a class="btn" data-dl href="https://github.com/aueoj/huppy/releases/latest/download/Huppy-mac.zip">
             <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7 1h2v8h2l-3 3-3-3h2zM2 12h2v2h8v-2h2v4H2z"/></svg>
             <span data-dl-label>Mac용 다운로드</span>
           </a>
-          <a class="btn ghost small" data-dl-alt href="https://github.com/aueoj/posture-pet/releases/latest/download/Huppy-windows-setup.exe">Windows용 다운로드</a>
+          <a class="btn ghost small" data-dl-alt href="https://github.com/aueoj/huppy/releases/latest/download/Huppy-windows-setup.exe">Windows용 다운로드</a>
         </div>
         <div class="meta" data-meta>macOS 14 이상 · Windows 10·11 · 무료</div>
       </div>
@@ -345,14 +345,14 @@
       <img class="px" src="sprites/happy-b.png" alt="">
       <h2>오늘 거북목, 몇 번 나왔을까요?</h2>
       <p class="sub" style="margin:0 auto 28px">무료예요. 세는 건 펫이 할게요.</p>
-      <a class="btn" data-dl href="https://github.com/aueoj/posture-pet/releases/latest/download/Huppy-mac.zip"><span data-dl-label>Mac용 다운로드</span></a>
+      <a class="btn" data-dl href="https://github.com/aueoj/huppy/releases/latest/download/Huppy-mac.zip"><span data-dl-label>Mac용 다운로드</span></a>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>허피(허리피라우) <span data-version></span> · 배포 파일 <a href="https://github.com/aueoj/posture-pet/releases">github.com/aueoj/posture-pet</a></span>
+    <span>허피(허리피라우) <span data-version></span> · 배포 파일 <a href="https://github.com/aueoj/huppy/releases">github.com/aueoj/huppy</a></span>
     <span>글꼴 <a href="https://github.com/quiple/galmuri">Galmuri</a> · <a href="https://freesentation.blog/">Freesentation</a> (SIL OFL)</span>
   </div>
 </footer>
@@ -442,7 +442,7 @@
 
   // Windows 면 Windows 설치 파일을 앞에, 휴대폰이면 PC에서 받으라고 안내한다
   const ua = navigator.userAgent;
-  const base = "https://github.com/aueoj/posture-pet/releases/latest/download/";
+  const base = "https://github.com/aueoj/huppy/releases/latest/download/";
   const isWin = /Windows/.test(ua);
   const os = isWin
     ? { file: "Huppy-windows-setup.exe", label: "Windows용 다운로드", meta: "Windows 10·11 (64비트)" }
@@ -457,7 +457,7 @@
   document.querySelectorAll("[data-dl-label]").forEach(el => { el.textContent = label; });
 
   // 최신 버전·크기
-  fetch("https://api.github.com/repos/aueoj/posture-pet/releases/latest")
+  fetch("https://api.github.com/repos/aueoj/huppy/releases/latest")
     .then(r => r.ok ? r.json() : Promise.reject())
     .then(rel => {
       const asset = (rel.assets || []).find(a => a.name === os.file);

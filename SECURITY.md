@@ -29,9 +29,9 @@
 
 | 목적 | 주소 | 언제 | 보내는 것 | 받는 것 |
 |---|---|---|---|---|
-| 판정 기준·대사 갱신 | `raw.githubusercontent.com/aueoj/posture-pet/main/remote-config.json` | 실행할 때, 이후 6시간마다 | 일반 HTTPS GET 요청(User-Agent `PosturePet`) | 텍스트·숫자로 된 JSON |
-| 업데이트 확인 | `raw.githubusercontent.com/aueoj/posture-pet/main/appcast.xml` | 하루 한 번 | Sparkle 기본 요청(앱 이름·버전) | 새 버전 목록 |
-| 업데이트 다운로드 | `github.com/aueoj/posture-pet/releases/…` | 사용자가 펫을 눌러 승인했을 때만 | 일반 HTTPS GET | 앱 zip |
+| 판정 기준·대사 갱신 | `raw.githubusercontent.com/aueoj/huppy/main/remote-config.json` | 실행할 때, 이후 6시간마다 | 일반 HTTPS GET 요청(User-Agent `PosturePet`) | 텍스트·숫자로 된 JSON |
+| 업데이트 확인 | `raw.githubusercontent.com/aueoj/huppy/main/appcast.xml` | 하루 한 번 | Sparkle 기본 요청(앱 이름·버전) | 새 버전 목록 |
+| 업데이트 다운로드 | `github.com/aueoj/huppy/releases/…` | 사용자가 펫을 눌러 승인했을 때만 | 일반 HTTPS GET | 앱 zip |
 
 | 별점·버그 폼 | `tally.so/r/…` | 사용자가 메뉴에서 폼을 고르거나 별점 부탁을 눌렀을 때만 | 기본 브라우저로 폼 페이지를 열 뿐, 앱이 직접 보내지 않아요 | 폼 페이지 |
 
@@ -83,7 +83,7 @@ Mac판과 판정·대사·저장하는 내용이 같고, 만든 방식만 달라
 |---|---|
 | 설치 | 사용자 계정에만 설치(관리자 권한 없음). 시작 메뉴·바탕화면에 "허피" |
 | 카메라 영상 | 이 PC 안에서 MediaPipe 로 분석하고 바로 버려요. 저장도 전송도 하지 않아요 |
-| 외부 통신 | 설정 파일(`raw.githubusercontent.com/aueoj/posture-pet/main/remote-config.json`)과 새 버전 확인(`api.github.com/repos/aueoj/posture-pet/releases/latest`), 받기만 해요. 별점·버그 폼은 사용자가 고를 때만 브라우저로 열어요 |
+| 외부 통신 | 설정 파일(`raw.githubusercontent.com/aueoj/huppy/main/remote-config.json`)과 새 버전 확인(`api.github.com/repos/aueoj/huppy/releases/latest`), 받기만 해요. 별점·버그 폼은 사용자가 고를 때만 브라우저로 열어요 |
 | 새 버전 | 자동 설치 없음. 펫이 알려주고, 사용자가 "받기"를 누르면 브라우저로 설치 파일을 받아요 |
 | 저장 위치 | `%APPDATA%\Huppy\` 의 `settings.json`(설정·경험치와 서명), `history.json`(30일), `logs\diagnostic.log`(켰을 때만, 5MB 넘으면 교체) |
 
