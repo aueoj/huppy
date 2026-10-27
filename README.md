@@ -1,4 +1,4 @@
-# PosturePet
+# 허피 (허리피라우)
 
 자세가 무너지면 화면 구석의 도트 펫이 알려주는 Mac 앱이에요. 잘 지키면 진화하고, 안 지키면 흑화해요.
 
@@ -6,7 +6,7 @@
 
 ## 설치
 
-1. [최신 릴리스](https://github.com/aueoj/posture-pet/releases/latest)에서 `PosturePet-mac.zip`을 받아 압축을 풀고 응용 프로그램 폴더로 옮겨요
+1. [최신 릴리스](https://github.com/aueoj/posture-pet/releases/latest)에서 `PosturePet-mac.zip`을 받아 압축을 풀고, 나온 `PosturePet.app`을 응용 프로그램 폴더로 옮겨요
 2. 처음 열면 "확인할 수 없음" 창이 떠요. 완료를 눌러 닫아요
 3. 시스템 설정 → 개인정보 보호 및 보안 맨 아래에서 **그래도 열기**를 누르고 암호를 입력해요
 4. 다시 열면 화면 아래에 펫이 나와요. 팔을 뻗으면 손끝이 화면에 닿을 만큼 떨어져 바르게 앉고 펫을 누르면 시작해요
