@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>PosturePet</title>
+    <item>
+      <title>0.1.1</title>
+      <pubDate>Tue, 27 Oct 2026 00:50:32 +0900</pubDate>
+      <sparkle:version>3</sparkle:version>
+      <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>그림과 말투 업데이트. 진화할수록 하트와 애정 표현, 흑화할수록 메롱과 건들지 마, 대사에서 온점 정리</p>]]></description>
+      <enclosure url="https://github.com/aueoj/posture-pet/releases/download/v0.1.1/PosturePet-0.1.1.zip" sparkle:edSignature="i0+uMHeh2Y0JWZKl+uATHSOjNwyiOOeSfVjk7K69nph3to40GgLCAMmjqVx4jmWKT/f94kNOAkPzmL/r1S+ACg==" length="1640705" type="application/octet-stream"/>
+    </item>
+    <item>
+      <title>0.1.0</title>
+      <pubDate>Tue, 27 Oct 2026 00:34:08 +0900</pubDate>
+      <sparkle:version>2</sparkle:version>
+      <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>첫 배포. 자세 경고와 코칭, 5초 유지 교정, 진화와 흑화, 스트레칭, 잠깐 쉬기</p>]]></description>
+      <enclosure url="https://github.com/aueoj/posture-pet/releases/download/v0.1.0/PosturePet-0.1.0.zip" sparkle:edSignature="JAumc7oDUsKBm0+kbdLchpiDwELyZkNMUtDzq4O5yOOP05FY2NDZBGLmbyaIEGu/AsA8EFyWh8AYUYK0filSAQ==" length="1619275" type="application/octet-stream"/>
+    </item>
+  </channel>
+</rss>

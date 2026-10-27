@@ -1,0 +1,23 @@
+Copyright (c) 2026 aueoj. All rights reserved.
+
+PosturePet 앱은 누구나 무료로 내려받아 개인적으로 사용할 수 있습니다.
+
+이 저장소의 소스 코드, 캐릭터 그림(도트 디자인과 표정·포즈), 펫 대사, 판정 기준,
+웹사이트를 포함한 모든 내용의 저작권은 aueoj에게 있습니다. 저작권자의 서면 허락 없이
+복제, 수정, 2차적 저작물 작성, 배포, 판매, 다른 제품에 사용하는 것을 금지합니다.
+
+공개 저장소에 올라와 있다는 사실이 사용 허락을 뜻하지 않습니다.
+
+---
+
+The PosturePet app may be downloaded and used free of charge for personal use.
+
+All source code, character artwork (pixel designs, expressions and poses), pet dialogue,
+posture thresholds and website content in this repository are the property of aueoj.
+No part may be copied, modified, used to create derivative works, distributed, sold or
+used in another product without prior written permission from the copyright holder.
+
+Public availability of this repository does not grant any license.
+
+Third-party components keep their own licenses: Sparkle (MIT), Galmuri and
+Freesentation fonts (SIL Open Font License 1.1).

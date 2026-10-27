@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PosturePet · 거북목 잡아주는 도트 펫</title>
+<meta name="description" content="자세가 무너지면 화면 구석의 도트 펫이 바로 알려줘요. 잘 지키면 진화, 안 지키면 흑화.">
+<meta property="og:title" content="PosturePet · 거북목 잡아주는 도트 펫">
+<meta property="og:description" content="자세가 무너지면 펫이 먼저 알아봐요. 잘 지키면 진화, 안 지키면 흑화.">
+<meta property="og:image" content="sprites/stagep5.png">
+<link rel="icon" href="sprites/stagep0.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@2.40.3/dist/galmuri.css">
+<style>
+  /* 본문 글꼴 Freesentation (SIL OFL). 파일이 바뀌지 않게 커밋을 고정해서 불러온다. */
+  @font-face { font-family: "Freesentation"; font-weight: 400; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/Freesentation/freesentation@98f6b841fca55a23fbb0f9eb91acda0e16a676ea/woff2/Freesentation-4Regular.woff2") format("woff2"); }
+  @font-face { font-family: "Freesentation"; font-weight: 500; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/Freesentation/freesentation@98f6b841fca55a23fbb0f9eb91acda0e16a676ea/woff2/Freesentation-5Medium.woff2") format("woff2"); }
+  @font-face { font-family: "Freesentation"; font-weight: 700; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/Freesentation/freesentation@98f6b841fca55a23fbb0f9eb91acda0e16a676ea/woff2/Freesentation-7Bold.woff2") format("woff2"); }
+</style>
+<style>
+  :root {
+    --cream: #FBF4E8;
+    --paper: #FFFDF8;
+    --ink: #1C1C1C;
+    --muted: #6B6259;
+    --clay: #D97757;
+    --clay-deep: #B85C3E;
+    --gold: #F5C842;
+    --night: #1E1013;
+    --night-2: #2A1418;
+    --line: 3px;
+    --pixel: "Galmuri11", "Galmuri14", ui-monospace, monospace;
+    --body: "Freesentation", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font: 17px/1.65 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  img.px { image-rendering: pixelated; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* 상단 */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(251, 244, 232, .92);
+    backdrop-filter: blur(8px);
+    border-bottom: var(--line) solid var(--ink);
+  }
+  header .wrap { display: flex; align-items: center; gap: 20px; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 8px; font: 700 18px var(--pixel); text-decoration: none; }
+  .logo img { width: 52px; margin: -8px -6px -4px -10px; }
+  nav { display: flex; gap: 18px; margin-left: auto; font: 14px var(--pixel); }
+  nav a { text-decoration: none; opacity: .75; }
+  nav a:hover { opacity: 1; }
+
+  /* 픽셀 버튼 */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px;
+    font: 16px var(--pixel);
+    color: var(--ink); background: var(--gold);
+    border: var(--line) solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+    text-decoration: none; cursor: pointer;
+    transition: transform .08s, box-shadow .08s;
+  }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+  .btn:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+  .btn.small { padding: 8px 14px; font-size: 13px; box-shadow: 3px 3px 0 var(--ink); }
+  .btn.ghost { background: var(--paper); }
+  .btn[aria-disabled="true"] { background: #E7DFD3; color: var(--muted); cursor: default; box-shadow: 3px 3px 0 #9C9389; border-color: #9C9389; transform: none; }
+  .btn svg { width: 18px; height: 18px; }
+
+  /* 히어로 */
+  .hero { padding: 64px 0 72px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+  .eyebrow { font: 13px var(--pixel); color: var(--clay-deep); letter-spacing: .02em; }
+  h1 { font: 34px/1.35 var(--pixel); margin: 10px 0 18px; letter-spacing: -.01em; }
+  h1 em { font-style: normal; background: linear-gradient(transparent 62%, rgba(217, 119, 87, .35) 0); }
+  .lead { color: #3D3833; margin: 0 0 28px; max-width: 30em; }
+  .dl { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .meta { margin-top: 14px; font-size: 13px; color: var(--muted); }
+
+  /* 화면 목업 */
+  .screen {
+    background: var(--paper);
+    border: var(--line) solid var(--ink);
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+  .screen .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: var(--line) solid var(--ink); background: #F1E8DA; }
+  .screen .bar i { width: 11px; height: 11px; border: 2px solid var(--ink); display: block; }
+  .screen .bar i:nth-child(1) { background: #EE6A5F; } .screen .bar i:nth-child(2) { background: #F5BE4F; } .screen .bar i:nth-child(3) { background: #62C554; }
+  .desk {
+    position: relative; height: 330px; overflow: hidden;
+    background:
+      linear-gradient(#E9E0D2 0 0) 24px 26px / 58% 10px no-repeat,
+      linear-gradient(#EFE7DA 0 0) 24px 50px / 72% 10px no-repeat,
+      linear-gradient(#EFE7DA 0 0) 24px 74px / 46% 10px no-repeat,
+      linear-gradient(#EFE7DA 0 0) 24px 98px / 64% 10px no-repeat,
+      var(--paper);
+  }
+  .stage { position: absolute; right: 0; bottom: 0; width: 330px; display: flex; flex-direction: column; align-items: center; }
+  /* 도트 캔버스 위쪽은 소품 자리라 비어 있다. 말풍선이 펫 머리에 붙게 당긴다. */
+  .stage img { width: 330px; margin-top: -78px; }
+  .xp { position: absolute; bottom: 70px; right: 18px; font: 15px var(--pixel); color: #2FB35A; text-shadow: 2px 0 var(--ink), -2px 0 var(--ink), 0 2px var(--ink), 0 -2px var(--ink); opacity: 0; transition: opacity .2s, transform .6s; }
+  .xp.on { opacity: 1; transform: translateY(-16px); }
+  .xp.minus { color: #E5383B; }
+
+  /* 도트 말풍선 */
+  .bubble {
+    position: relative; max-width: 240px; margin-bottom: 4px;
+    padding: 9px 13px; text-align: center;
+    font: 13px/1.5 var(--pixel); white-space: pre-line;
+    background: #fff;
+    box-shadow:
+      0 -3px 0 var(--ink), 0 3px 0 var(--ink), -3px 0 0 var(--ink), 3px 0 0 var(--ink),
+      6px 6px 0 rgba(0,0,0,.18);
+    transition: opacity .15s;
+  }
+  .bubble::after {
+    content: ""; position: absolute; left: 50%; bottom: -12px; width: 3px; height: 3px; transform: translateX(-50%);
+    background: var(--ink);
+    box-shadow: -3px -6px 0 var(--ink), 3px -6px 0 var(--ink), 0 -6px 0 #fff, 0 -3px 0 #fff, -3px -3px 0 var(--ink), 3px -3px 0 var(--ink), -6px -9px 0 var(--ink), 6px -9px 0 var(--ink);
+  }
+  .bubble.hide { opacity: 0; }
+
+  section { padding: 84px 0; border-top: var(--line) solid var(--ink); }
+  h2 { font: 26px/1.4 var(--pixel); margin: 0 0 12px; }
+  .sub { color: var(--muted); margin: 0 0 40px; max-width: 34em; }
+
+  /* 작동 방식 */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .card { background: var(--paper); border: var(--line) solid var(--ink); box-shadow: 5px 5px 0 var(--ink); padding: 0 18px 20px; }
+  .card img { width: 230px; max-width: 100%; margin: -40px auto -6px; }
+  .card .n { font: 12px var(--pixel); color: var(--clay-deep); }
+  .card h3 { font: 16px/1.45 var(--pixel); margin: 4px 0 6px; }
+  .card p { margin: 0; font-size: 15px; color: #4A443E; }
+
+  /* 진화 · 흑화 */
+  #evolve { background: #111; color: #fff; }
+  #evolve .sub { color: rgba(255,255,255,.7); }
+  #evolve .evo { box-shadow: 8px 8px 0 #D97757; }
+  .evo { display: grid; grid-template-columns: 300px 1fr; gap: 28px; align-items: center; background: var(--paper); color: var(--ink); border: var(--line) solid var(--ink); box-shadow: 8px 8px 0 var(--ink); padding: 26px; }
+  .evo-pet { display: flex; flex-direction: column; align-items: center; }
+  .evo-pet img { width: 260px; }
+  .evo-name { font: 22px var(--pixel); margin: 2px 0 0; }
+  .evo-side .tag { display: inline-block; font: 12px var(--pixel); padding: 3px 8px; border: 2px solid var(--ink); margin-bottom: 10px; }
+  .evo-side .quote { font: 17px/1.6 var(--pixel); margin: 6px 0 14px; min-height: 2.6em; }
+  .evo-side p { margin: 0; color: #4A443E; font-size: 15px; }
+  input[type=range] { width: 100%; margin: 22px 0 6px; accent-color: var(--clay); }
+  .ticks { display: grid; grid-template-columns: repeat(11, 1fr); text-align: center; }
+  .ticks button { all: unset; cursor: pointer; display: flex; flex-direction: column; align-items: center; font: 11px var(--pixel); color: var(--muted); }
+  .ticks button img { width: 56px; transition: transform .12s; }
+  .ticks button:hover img, .ticks button[aria-current="true"] img { transform: translateY(-4px); }
+  .ticks button[aria-current="true"] { color: var(--ink); }
+
+  /* 기능 */
+  .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .feature { display: grid; grid-template-columns: 150px 1fr; gap: 6px; align-items: center; background: var(--paper); border: var(--line) solid var(--ink); box-shadow: 5px 5px 0 var(--ink); padding: 8px 20px 8px 0; }
+  .feature img { width: 170px; margin-left: -12px; }
+  .feature h3 { font: 16px var(--pixel); margin: 0 0 4px; }
+  .feature p { margin: 0; font-size: 15px; color: #4A443E; }
+
+  /* 개인정보 */
+  .privacy { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .privacy div { border-top: var(--line) solid var(--ink); padding-top: 14px; }
+  .privacy b { display: block; font: 15px var(--pixel); margin-bottom: 6px; }
+  .privacy span { font-size: 15px; color: #4A443E; }
+
+  /* 설치 */
+  #install { background: var(--paper); }
+  .install { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  ol.steps-list { counter-reset: s; list-style: none; padding: 0; margin: 0; }
+  ol.steps-list li { counter-increment: s; position: relative; padding: 0 0 18px 48px; }
+  ol.steps-list li::before { content: counter(s); position: absolute; left: 0; top: -2px; width: 32px; height: 32px; display: grid; place-items: center; font: 15px var(--pixel); background: var(--gold); border: var(--line) solid var(--ink); }
+  kbd { font: 13px var(--pixel); padding: 1px 6px; border: 2px solid var(--ink); background: #fff; white-space: nowrap; }
+  .note { background: #FFF6DE; border: var(--line) solid var(--ink); padding: 16px 18px; font-size: 15px; }
+  .note b { font-family: var(--pixel); font-weight: 400; }
+  .win { margin-top: 18px; display: flex; gap: 14px; align-items: center; border: var(--line) dashed #9C9389; padding: 14px 18px; color: var(--muted); font-size: 15px; }
+
+  .cta { text-align: center; }
+  .cta img { width: 220px; margin: 0 auto -8px; }
+
+  footer { border-top: var(--line) solid var(--ink); padding: 28px 0 40px; font-size: 14px; color: var(--muted); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 24px; justify-content: space-between; }
+
+  @media (max-width: 860px) {
+    nav { display: none; }
+    .hero .wrap, .install, .evo { grid-template-columns: 1fr; }
+    .hero { padding-top: 40px; }
+    h1 { font-size: 27px; }
+    .steps { grid-template-columns: repeat(2, 1fr); }
+    .grid2, .privacy { grid-template-columns: 1fr; }
+    .ticks button img { width: 40px; }
+    .ticks button span { display: none; }
+  }
+  @media (max-width: 520px) {
+    .steps { grid-template-columns: 1fr; }
+    .feature { grid-template-columns: 110px 1fr; }
+    .feature img { width: 130px; }
+    .desk { height: 300px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#"><img class="px" src="sprites/stagep0.png" alt="">PosturePet</a>
+    <nav>
+      <a href="#how">작동 방식</a>
+      <a href="#evolve">진화·흑화</a>
+      <a href="#features">기능</a>
+      <a href="#install">설치</a>
+    </nav>
+    <a class="btn small" href="#download" data-dl>다운로드</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Mac용 자세 교정 펫</div>
+        <h1>자세가 무너지면<br><em>펫이 먼저 알아봐요</em></h1>
+        <p class="lead">Mac 카메라로 틈틈이 자세를 보다가 거북목이 보이면 바로 말을 걸어요. 잘 지키면 펫이 자라고 계속 무시하면 점점 삐뚤어집니다.</p>
+        <div class="dl" id="download">
+          <a class="btn" data-dl href="https://github.com/aueoj/posture-pet/releases/latest/download/PosturePet-mac.zip">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7 1h2v8h2l-3 3-3-3h2zM2 12h2v2h8v-2h2v4H2z"/></svg>
+            <span data-dl-label>Mac용 다운로드</span>
+          </a>
+          <span class="btn ghost small" aria-disabled="true">Windows는 준비 중</span>
+        </div>
+        <div class="meta" data-meta>macOS 14 이상 · Apple 실리콘과 인텔 · 무료</div>
+      </div>
+
+      <div class="screen" aria-label="PosturePet 미리보기">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="desk">
+          <div class="stage">
+            <div class="bubble" data-hero-bubble>거북목 나왔어요!<br>턱 당기고 목은 뒤로</div>
+            <img class="px" data-hero-img src="sprites/alert-a.png" alt="경고하는 펫">
+          </div>
+          <div class="xp" data-hero-xp>+10 XP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>지켜보는 방법</h2>
+      <p class="sub">정해진 기준 대신 <b>내가 편하고 바르게 앉은 자세</b>를 기억해요. 거기서 나빠질 때만 알려주고 허리를 더 펴거나 등받이에 기대는 건 그냥 둡니다.</p>
+      <div class="steps">
+        <div class="card"><img class="px" src="sprites/idle-a.png" alt=""><div class="n">01</div><h3>바른 자세 기억</h3><p>바르게 앉아서 펫을 한 번 누르면 끝.</p></div>
+        <div class="card"><img class="px" src="sprites/read-a.png" alt=""><div class="n">02</div><h3>90초마다 살짝 확인</h3><p>카메라는 몇 초만 켜졌다 꺼져요. 그동안 펫은 딴짓 중.</p></div>
+        <div class="card"><img class="px" src="sprites/alert-a.png" alt=""><div class="n">03</div><h3>무너지면 바로 코칭</h3><p>거북목인지 고개를 숙인 건지 화면에 붙은 건지 구분해서 고치는 법까지 알려줘요.</p></div>
+        <div class="card"><img class="px" src="sprites/hold-a.png" alt=""><div class="n">04</div><h3>5초 버티면 경험치</h3><p>살짝 움직이는 걸로는 부족해요. 바른 자세로 5초를 버텨야 인정.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="evolve">
+    <div class="wrap">
+      <h2>잘 지키면 천사, 안 지키면 마왕</h2>
+      <p class="sub">잘 지킬수록 애정 표현이 늘고, 경고를 흘려듣거나 스트레칭을 건너뛰면 경험치가 깎여요. 흑화할수록 투정이 심해지고 판정도 예민해집니다.</p>
+      <div class="evo">
+        <div class="evo-pet">
+          <img class="px" data-evo-img src="sprites/stagep0.png" alt="">
+          <div class="evo-name" data-evo-name>0 기본</div>
+        </div>
+        <div class="evo-side">
+          <span class="tag" data-evo-tag>시작 단계</span>
+          <div class="quote" data-evo-quote>"거북목 나왔어요! 턱 당기고 목은 뒤로"</div>
+          <p data-evo-desc>모두 여기서 시작.</p>
+          <input type="range" min="-5" max="5" step="1" value="0" data-evo-range aria-label="진화 단계">
+          <div class="ticks" data-evo-ticks></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>책상 위의 작은 친구</h2>
+      <p class="sub">자세만 잡는 게 아니라 같이 지내요.</p>
+      <div class="grid2">
+        <div class="feature"><img class="px" src="sprites/stretch-a.png" alt=""><div><h3>30분마다 스트레칭</h3><p>기지개와 목 스트레칭을 번갈아 시켜요. 진짜 했는지는 카메라로 확인.</p></div></div>
+        <div class="feature"><img class="px" src="sprites/whip-b.png" alt=""><div><h3>무시하면 찰싹</h3><p>경고를 흘려듣거나 스트레칭을 건너뛰면 채찍이 나오고 경험치가 깎여요.</p></div></div>
+        <div class="feature"><img class="px" src="sprites/held-a.png" alt=""><div><h3>들어서 옮기기</h3><p>잡아서 원하는 곳에 내려놓으면 거기서 돌아다녀요. 너무 높이서 놓으면 어지러워합니다.</p></div></div>
+        <div class="feature"><img class="px" src="sprites/rest-a.png" alt=""><div><h3>잠깐 쉬기</h3><p>회의 중이면 펫을 누르고 쉬는 시간을 골라요. 그동안은 커피만 마셔요.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap">
+      <h2>영상은 이 Mac 밖으로 나가지 않아요</h2>
+      <p class="sub">자세를 보려면 카메라가 필요해요. 대신 영상은 어디에도 남지 않습니다.</p>
+      <div class="privacy">
+        <div><b>저장 안 함</b><span>사진도 영상도 저장하지 않아요. 얼굴 위치 같은 숫자만 잠깐 계산하고 버려요.</span></div>
+        <div><b>전송 안 함</b><span>분석은 Apple Vision으로 이 Mac 안에서 끝나요.</span></div>
+        <div><b>몇 초만 켜짐</b><span>확인할 때만 잠깐 켜요. 초록 불이 들어오는 그 순간이에요.</span></div>
+        <div><b>계정 없음</b><span>가입도 로그인도 없어요. 코드는 전부 공개.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="wrap install">
+      <div>
+        <h2>설치</h2>
+        <ol class="steps-list">
+          <li><b>PosturePet-mac.zip</b>을 받아 압축을 풀고 <b>응용 프로그램</b> 폴더로 옮겨요.</li>
+          <li>처음 열면 "확인할 수 없음" 창이 떠요. <kbd>완료</kbd>를 눌러 닫아요.</li>
+          <li><b>시스템 설정 → 개인정보 보호 및 보안</b> 맨 아래에서 <kbd>그래도 열기</kbd>를 누르고 암호 입력.</li>
+          <li>다시 열면 화면 아래에 펫이 나와요. 바르게 앉아서 펫을 누르면 시작.</li>
+        </ol>
+      </div>
+      <div>
+        <div class="note"><b>"그래도 열기"는 왜 필요한가요?</b><br>개인이 무료로 만든 앱이라 Apple 유료 인증이 없어요. 처음 한 번만 하면 되고 업데이트는 펫이 앱 안에서 알려줘요.</div>
+        <div class="win"><img class="px" src="sprites/skate-a.png" alt="" style="width:110px;margin:-14px -8px -10px -14px">Windows 버전은 준비 중이에요. GitHub에서 Watch를 누르면 소식을 받아볼 수 있어요.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <img class="px" src="sprites/happy-b.png" alt="">
+      <h2>오늘 거북목, 몇 번 나왔을까요?</h2>
+      <p class="sub" style="margin:0 auto 28px">무료예요. 세는 건 펫이 할게요.</p>
+      <a class="btn" data-dl href="https://github.com/aueoj/posture-pet/releases/latest/download/PosturePet-mac.zip"><span data-dl-label>Mac용 다운로드</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>PosturePet <span data-version></span> · 소스 코드 <a href="https://github.com/aueoj/posture-pet">github.com/aueoj/posture-pet</a></span>
+    <span>글꼴 <a href="https://github.com/quiple/galmuri">Galmuri</a> · <a href="https://freesentation.blog/">Freesentation</a> (SIL OFL)</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const S = n => `sprites/${n}.png`;
+
+  // 미리 불러와서 프레임이 바뀔 때 깜빡이지 않게
+  ["idle", "alert", "hold", "happy", "whip", "stretch", "rest"].forEach(n => ["a", "b"].forEach(f => { new Image().src = S(`${n}-${f}`); }));
+
+  // 히어로: 경고 → 유지 → 칭찬 → … → 무시 → 채찍
+  const scenes = [
+    { pose: "alert", say: "거북목 나왔어요!\n턱 당기고 목은 뒤로", ms: 2600 },
+    { pose: "hold", say: "그대로 5초만!", ms: 900 },
+    { pose: "hold", say: "그대로 3초만!", ms: 900 },
+    { pose: "hold", say: "그대로 1초만!", ms: 900 },
+    { pose: "happy", say: "그거예요!", ms: 2200, xp: "+10 XP" },
+    { pose: "idle", say: null, ms: 1800 },
+    { pose: "stretch", say: "스트레칭할 시간\n두 팔 머리 위로 쭉", ms: 2600 },
+    { pose: "whip", say: "건너뛰면 몸 굳어요\n다음엔 꼭 해요", ms: 2400, xp: "-12 XP" },
+    { pose: "rest", say: "30분 쉴게요", ms: 2400 },
+  ];
+  const img = document.querySelector("[data-hero-img]");
+  const bubble = document.querySelector("[data-hero-bubble]");
+  const xp = document.querySelector("[data-hero-xp]");
+  let scene = 0, frame = 0, until = 0;
+  function show(i) {
+    const s = scenes[i];
+    bubble.classList.toggle("hide", !s.say);
+    if (s.say) bubble.textContent = s.say;
+    xp.classList.remove("on", "minus");
+    if (s.xp) {
+      xp.textContent = s.xp;
+      xp.classList.toggle("minus", s.xp.startsWith("-"));
+      requestAnimationFrame(() => xp.classList.add("on"));
+    }
+    until = performance.now() + s.ms;
+  }
+  show(0);
+  if (!reduce) {
+    setInterval(() => {
+      frame ^= 1;
+      img.src = S(`${scenes[scene].pose}-${frame ? "b" : "a"}`);
+      if (performance.now() > until) { scene = (scene + 1) % scenes.length; show(scene); }
+    }, 250);
+  }
+
+  // 진화 · 흑화 슬라이더
+  const stages = {
+    5:  ["천사", "+5단계", "\"뽀뽀!\"", "끝까지 잘 지킨 사람만 만나요. 이미 반했대요."],
+    4:  ["왕관", "+4단계", "\"나 안아\"", "금빛 몸에 왕관. 쓰다듬으면 하트가 떠요."],
+    3:  ["반짝", "+3단계", "\"안아줘요\"", "몸이 밝아지고 애정 표현이 시작돼요."],
+    2:  ["새싹", "+2단계", "\"저 좋아요?\"", "머리에 새싹이 돋아요."],
+    1:  ["초롱", "+1단계", "\"헤헤 간지러워요\"", "눈이 초롱초롱."],
+    0:  ["기본", "시작 단계", "\"거북목 나왔어요! 턱 당기고 목은 뒤로\"", "모두 여기서 시작."],
+    "-1": ["삐짐", "-1단계", "\"왜 찔러! 참나\"", "눈매가 사나워지고 말투가 딱딱해져요."],
+    "-2": ["투덜", "-2단계", "\"거북목 또 나왔어! 바보야\"", "몸이 어두워지고 바보야와 메롱이 나와요."],
+    "-3": ["꼬질", "-3단계", "\"으이구! 거북목 또 나왔어\"", "얼룩이 생기고 잔소리가 늘어요."],
+    "-4": ["뿔난", "-4단계", "\"건들지 마!\"", "뿔이 나요. 손대면 화내고 한 번만 걸려도 바로 경고."],
+    "-5": ["마왕", "-5단계", "\"바보야 미워! 그래서 내가 이 모양이잖아\"", "바른 자세로만 되돌릴 수 있어요."],
+  };
+  const range = document.querySelector("[data-evo-range]");
+  const ticks = document.querySelector("[data-evo-ticks]");
+  const file = n => S(`stage${n < 0 ? "m" : "p"}${Math.abs(n)}`);
+  for (let n = -5; n <= 5; n++) {
+    new Image().src = file(n);
+    const b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", `${n > 0 ? "+" + n : n}단계 ${stages[n][0]}`);
+    b.innerHTML = `<img class="px" src="${file(n)}" alt=""><span>${n > 0 ? "+" + n : n}</span>`;
+    b.addEventListener("click", () => { range.value = n; setStage(n); });
+    ticks.appendChild(b);
+  }
+  function setStage(n) {
+    const [name, tag, quote, desc] = stages[n];
+    document.querySelector("[data-evo-img]").src = file(n);
+    document.querySelector("[data-evo-name]").textContent = `${n > 0 ? "+" + n : n} ${name}`;
+    document.querySelector("[data-evo-tag]").textContent = tag;
+    document.querySelector("[data-evo-quote]").textContent = quote;
+    document.querySelector("[data-evo-desc]").textContent = desc;
+    [...ticks.children].forEach((b, i) => b.setAttribute("aria-current", String(i - 5 === n)));
+  }
+  range.addEventListener("input", () => setStage(Number(range.value)));
+  setStage(0);
+
+  // Windows·휴대폰이면 버튼 문구를 바꾼다
+  const ua = navigator.userAgent;
+  const label = /Windows/.test(ua) ? "Mac용 다운로드 (Windows는 준비 중)"
+              : /iPhone|iPad|Android/.test(ua) ? "Mac에서 받아주세요" : null;
+  if (label) document.querySelectorAll("[data-dl-label]").forEach(el => { el.textContent = label; });
+
+  // 최신 버전·크기
+  fetch("https://api.github.com/repos/aueoj/posture-pet/releases/latest")
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(rel => {
+      const asset = (rel.assets || []).find(a => a.name === "PosturePet-mac.zip");
+      document.querySelector("[data-version]").textContent = rel.tag_name;
+      if (asset) {
+        const mb = (asset.size / 1048576).toFixed(1);
+        document.querySelector("[data-meta]").textContent = `${rel.tag_name} · ${mb}MB · macOS 14 이상 · Apple 실리콘과 인텔 · 무료`;
+      }
+    })
+    .catch(() => {});
+})();
+</script>
+</body>
+</html>

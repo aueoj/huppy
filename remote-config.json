@@ -1,0 +1,952 @@
+{
+  "lines" : {
+    "corrected" : [
+      "그거예요!",
+      "딱 그 자세",
+      "완벽해요"
+    ],
+    "greeting" : [
+      "오늘도 잘 부탁해요",
+      "왔어요? 오늘도 같이 바르게"
+    ],
+    "held" : [
+      "으앗 어디 가요",
+      "높다 높아",
+      "내려줘요",
+      "저 지금 날고 있어요?"
+    ],
+    "holdBroken" : [
+      "앗 풀렸다! 다시"
+    ],
+    "holdCount" : [
+      "그대로 {seconds}초만!"
+    ],
+    "ignored" : [
+      "아직 그대로예요\n{coaching}"
+    ],
+    "issues" : {
+      "forwardHead" : {
+        "coaching" : [
+          "턱 당기고 목은 뒤로"
+        ],
+        "nudge" : [
+          "목이 슬슬 앞으로 나와요"
+        ],
+        "warning" : [
+          "거북목 나왔어요!"
+        ]
+      },
+      "headDown" : {
+        "coaching" : [
+          "화면은 눈높이로"
+        ],
+        "nudge" : [
+          "고개가 조금씩 숙여져요"
+        ],
+        "warning" : [
+          "고개가 많이 숙여졌어요"
+        ]
+      },
+      "headTilt" : {
+        "coaching" : [
+          "고개 똑바로"
+        ],
+        "nudge" : [
+          "고개가 살짝 기울었어요"
+        ],
+        "warning" : [
+          "고개가 기울었어요"
+        ]
+      },
+      "leaning" : {
+        "coaching" : [
+          "팔에 기대지 말고 가운데로"
+        ],
+        "nudge" : [
+          "몸이 살짝 한쪽으로 가요"
+        ],
+        "warning" : [
+          "몸이 한쪽으로 기울었어요"
+        ]
+      },
+      "shoulderTilt" : {
+        "coaching" : [
+          "양쪽 어깨 힘 빼기"
+        ],
+        "nudge" : [
+          "어깨가 살짝 기울었어요"
+        ],
+        "warning" : [
+          "어깨 높이가 달라요"
+        ]
+      },
+      "slumped" : {
+        "coaching" : [
+          "엉덩이 끝까지 넣고 허리 세우기"
+        ],
+        "nudge" : [
+          "슬슬 의자에 눕고 있어요"
+        ],
+        "warning" : [
+          "의자에 거의 누웠어요"
+        ]
+      },
+      "tooClose" : {
+        "coaching" : [
+          "팔 길이만큼 떨어져 앉기"
+        ],
+        "nudge" : [
+          "화면에 조금씩 다가가고 있어요"
+        ],
+        "warning" : [
+          "화면이랑 너무 가까워요"
+        ]
+      }
+    },
+    "landed" : [
+      "착지 성공",
+      "여기가 새 자리예요?",
+      "도착!"
+    ],
+    "landedHard" : [
+      "어지러워요 @_@",
+      "아야 살살요"
+    ],
+    "poke" : [
+      "저 말고 자세 보기",
+      "오늘 {corrected}번 바로잡았어요",
+      "스트레칭까지 {minutes}분",
+      "지금 XP {xp}"
+    ],
+    "stageDown" : [
+      "흑화했어요\n이제 '{stage}'"
+    ],
+    "stageUp" : [
+      "진화했어요!\n이제 '{stage}'"
+    ],
+    "stretchArms" : [
+      "스트레칭할 시간\n두 팔 머리 위로 쭉"
+    ],
+    "stretchDone" : [
+      "시원하죠?",
+      "스트레칭 끝!"
+    ],
+    "stretchHold" : [
+      "그대로 {seconds}초"
+    ],
+    "stretchNeckFirst" : [
+      "목 스트레칭할 시간\n한쪽으로 천천히 기울이기"
+    ],
+    "stretchNeckSecond" : [
+      "이번엔 반대쪽"
+    ],
+    "stretchSkipped" : [
+      "건너뛰면 몸 굳어요\n다음엔 꼭 해요"
+    ],
+    "updateAvailable" : [
+      "새 버전 {version} 나왔어요\n저를 눌러서 업데이트"
+    ]
+  },
+  "rules" : {
+    "armsStretchSeconds" : 20,
+    "awayMinutes" : 5,
+    "cautionNudgeStreak" : 4,
+    "correctionSeconds" : 10,
+    "holdSeconds" : 5,
+    "neckStretchSecondsPerSide" : 10,
+    "stretchHoldSeconds" : 3,
+    "strikesToWarn" : 2,
+    "xpLossIgnored" : 8,
+    "xpLossSkipped" : 12,
+    "xpMax" : 2000,
+    "xpMin" : -800,
+    "xpPerCorrection" : 10,
+    "xpPerStretch" : 15
+  },
+  "schema" : 2,
+  "stages" : {
+    "-1" : {
+      "name" : "삐짐",
+      "sensitivity" : 0.95,
+      "tone" : "pouty",
+      "xp" : -40
+    },
+    "-2" : {
+      "name" : "투덜",
+      "sensitivity" : 0.9,
+      "tone" : "sassy",
+      "xp" : -120
+    },
+    "-3" : {
+      "name" : "꼬질",
+      "sensitivity" : 0.85,
+      "tone" : "rude",
+      "xp" : -240
+    },
+    "-4" : {
+      "name" : "뿔난",
+      "sensitivity" : 0.8,
+      "strikes" : 1,
+      "tone" : "fierce",
+      "xp" : -380
+    },
+    "-5" : {
+      "name" : "마왕",
+      "sensitivity" : 0.75,
+      "strikes" : 1,
+      "tone" : "demon",
+      "xp" : -550
+    },
+    "0" : {
+      "name" : "기본",
+      "sensitivity" : 1,
+      "tone" : "normal",
+      "xp" : 0
+    },
+    "1" : {
+      "name" : "초롱",
+      "sensitivity" : 1,
+      "tone" : "bright",
+      "xp" : 80
+    },
+    "2" : {
+      "name" : "새싹",
+      "sensitivity" : 1,
+      "tone" : "bright",
+      "xp" : 220
+    },
+    "3" : {
+      "name" : "반짝",
+      "sensitivity" : 1,
+      "tone" : "sweet",
+      "xp" : 500
+    },
+    "4" : {
+      "name" : "왕관",
+      "sensitivity" : 1,
+      "tone" : "angel",
+      "xp" : 900
+    },
+    "5" : {
+      "name" : "천사",
+      "sensitivity" : 1,
+      "tone" : "devoted",
+      "xp" : 1400
+    }
+  },
+  "thresholds" : {
+    "calibrationDistanceCm" : 60,
+    "distanceBadCm" : 50,
+    "distanceCautionCm" : 55,
+    "earSankBad" : 0.12,
+    "earSankCaution" : 0.07,
+    "faceDropBad" : 0.3,
+    "faceDropCaution" : 0.18,
+    "headTiltBadDegrees" : 10,
+    "headTiltCautionDegrees" : 6,
+    "leaningBad" : 0.4,
+    "leaningCaution" : 0.25,
+    "neckFlexionBadDegrees" : 20,
+    "neckFlexionCautionDegrees" : 10,
+    "shoulderTiltBad" : 0.1,
+    "shoulderTiltCaution" : 0.06,
+    "slumpDropBad" : 0.6,
+    "slumpDropCaution" : 0.4
+  },
+  "tones" : {
+    "angel" : {
+      "corrected" : [
+        "반할 것 같아요",
+        "사랑해요",
+        "역시 자세 천사"
+      ],
+      "greeting" : [
+        "왔다! 보고 싶었어요"
+      ],
+      "held" : [
+        "꼭 안아줘요",
+        "구름 위 같아요"
+      ],
+      "ignored" : [
+        "괜찮아요! 다시 해봐요\n{coaching}"
+      ],
+      "issues" : {
+        "forwardHead" : {
+          "warning" : [
+            "목이 살짝 나왔어요"
+          ]
+        },
+        "headDown" : {
+          "warning" : [
+            "고개 살짝 들어볼까요?"
+          ]
+        },
+        "headTilt" : {
+          "warning" : [
+            "후광이 삐뚤어졌어요"
+          ]
+        },
+        "leaning" : {
+          "warning" : [
+            "몸이 기울었어요! 가운데로"
+          ]
+        },
+        "shoulderTilt" : {
+          "warning" : [
+            "어깨 살며시 펴기"
+          ]
+        },
+        "slumped" : {
+          "warning" : [
+            "많이 기댔네요! 허리 살짝 세워볼까요?"
+          ]
+        },
+        "tooClose" : {
+          "warning" : [
+            "화면이 가까워요! 눈 아껴줘요"
+          ]
+        }
+      },
+      "landed" : [
+        "옆에 둬줘서 좋아요"
+      ],
+      "poke" : [
+        "안아줘요",
+        "나 안아",
+        "사랑해요",
+        "반할 것 같아요"
+      ],
+      "stageUp" : [
+        "왕관 받았어요! 다 덕분이에요\n이제 '{stage}'"
+      ],
+      "stretchArms" : [
+        "스트레칭할 시간\n날개 펴듯 두 팔 쭉"
+      ],
+      "stretchDone" : [
+        "몸도 마음도 가벼워졌죠? 사랑해요"
+      ],
+      "stretchSkipped" : [
+        "스트레칭은 다음에 꼭 같이 해요"
+      ]
+    },
+    "bright" : {
+      "corrected" : [
+        "좋아요!",
+        "역시 딱 좋아요",
+        "그 자세 좋아요"
+      ],
+      "greeting" : [
+        "오늘도 같이 해봐요",
+        "왔어요? 기분 좋다"
+      ],
+      "poke" : [
+        "헤헤 간지러워요",
+        "저 좋아요?",
+        "오늘 {corrected}번 지켰어요",
+        "XP {xp}! 쑥쑥 크는 중",
+        "스트레칭까지 {minutes}분"
+      ],
+      "stretchDone" : [
+        "저까지 개운해요",
+        "몸 가벼워졌죠?"
+      ]
+    },
+    "demon" : {
+      "corrected" : [
+        "흥 이번엔 했네",
+        "바보 계속 그렇게 해"
+      ],
+      "greeting" : [
+        "흥 왔어? 미워\n그래도 오늘은 잘해봐"
+      ],
+      "held" : [
+        "나한테 손대지 마!",
+        "건들지 마 바보야!",
+        "돈 터치 미!"
+      ],
+      "holdBroken" : [
+        "또 무너졌어! 어휴..."
+      ],
+      "holdCount" : [
+        "{seconds}초! 버텨 바보야"
+      ],
+      "ignored" : [
+        "바보야 미워! 그래서 내가 이 모양이잖아\n{coaching}"
+      ],
+      "issues" : {
+        "forwardHead" : {
+          "warning" : [
+            "바보야! 거북목 오늘만 몇 번째야"
+          ]
+        },
+        "headDown" : {
+          "warning" : [
+            "고개 들어! 미워 진짜"
+          ]
+        },
+        "headTilt" : {
+          "warning" : [
+            "흥! 고개 똑바로"
+          ]
+        },
+        "leaning" : {
+          "warning" : [
+            "또 기울었어! 미워"
+          ]
+        },
+        "shoulderTilt" : {
+          "warning" : [
+            "어깨! 바보야"
+          ]
+        },
+        "slumped" : {
+          "warning" : [
+            "누워서 일하는 거 아니잖아! 바보야"
+          ]
+        },
+        "tooClose" : {
+          "warning" : [
+            "화면 속으로 들어갈 거야? 바보"
+          ]
+        }
+      },
+      "landed" : [
+        "흥 여기서 지켜볼 거야! 메롱"
+      ],
+      "landedHard" : [
+        "아프잖아! 바보야"
+      ],
+      "poke" : [
+        "건들지 마!",
+        "돈 터치 미",
+        "나한테 손대지 마!",
+        "메롱 건드려도 안 풀려",
+        "흥! 자세로 풀어"
+      ],
+      "stageDown" : [
+        "결국 '{stage}'까지 왔네! 미워\n바른 자세로만 돌아갈 수 있어"
+      ],
+      "stageUp" : [
+        "흥 '{stage}'\n아직 안 끝났어"
+      ],
+      "stretchArms" : [
+        "스트레칭! 안 하면 나 더 까매진다"
+      ],
+      "stretchDone" : [
+        "흥 좀 시원하네\n고맙다는 건 아니고"
+      ],
+      "stretchHold" : [
+        "{seconds}초"
+      ],
+      "stretchNeckFirst" : [
+        "목 기울여! 천천히"
+      ],
+      "stretchNeckSecond" : [
+        "반대!"
+      ],
+      "stretchSkipped" : [
+        "또 건너뛰었어! 미워 미워"
+      ]
+    },
+    "devoted" : {
+      "corrected" : [
+        "사실 이미 반했어요",
+        "사랑해요",
+        "평생 이 자세였으면"
+      ],
+      "greeting" : [
+        "오늘도 사랑해요",
+        "왔어요? 사실 계속 기다렸어요"
+      ],
+      "held" : [
+        "꼭 안아줘요",
+        "이대로 계속 안고 있어요"
+      ],
+      "holdCount" : [
+        "{seconds}초만 더! 사랑해요"
+      ],
+      "ignored" : [
+        "그래도 사랑해요! 다시 해봐요\n{coaching}"
+      ],
+      "issues" : {
+        "forwardHead" : {
+          "warning" : [
+            "목이 살짝 나왔어요! 걱정돼요"
+          ]
+        },
+        "headDown" : {
+          "warning" : [
+            "고개 들고 저 봐줘요"
+          ]
+        },
+        "headTilt" : {
+          "warning" : [
+            "고개 기울이면 귀엽긴 한데요"
+          ]
+        },
+        "leaning" : {
+          "warning" : [
+            "몸이 기울었어요! 가운데로 와요"
+          ]
+        },
+        "shoulderTilt" : {
+          "warning" : [
+            "어깨 살며시 펴줘요"
+          ]
+        },
+        "slumped" : {
+          "warning" : [
+            "많이 기댔네요! 허리 아플까 봐 걱정돼요"
+          ]
+        },
+        "tooClose" : {
+          "warning" : [
+            "눈 나빠질까 봐 걱정돼요! 조금만 뒤로"
+          ]
+        }
+      },
+      "landed" : [
+        "어디든 같이 있으면 좋아요"
+      ],
+      "landedHard" : [
+        "아야! 그래도 사랑해요"
+      ],
+      "poke" : [
+        "뽀뽀!",
+        "나 안아",
+        "사실 이미 반했어요",
+        "사랑해요"
+      ],
+      "stageUp" : [
+        "천사가 됐어요\n전부 덕분이에요! 사랑해요"
+      ],
+      "stretchArms" : [
+        "스트레칭할 시간\n날개 펴듯 두 팔 쭉"
+      ],
+      "stretchDone" : [
+        "같이 해줘서 고마워요! 사랑해요"
+      ],
+      "stretchSkipped" : [
+        "다음엔 꼭 같이 해요! 기다릴게요"
+      ]
+    },
+    "fierce" : {
+      "corrected" : [
+        "흥 이번엔 봐준다",
+        "으이구 진작 그러지"
+      ],
+      "greeting" : [
+        "흥 왔어? 건들지는 마"
+      ],
+      "held" : [
+        "건들지 마!",
+        "나한테 손대지 마!",
+        "돈 터치 미!"
+      ],
+      "holdBroken" : [
+        "으이구 움직였잖아! 처음부터"
+      ],
+      "holdCount" : [
+        "{seconds}초 버텨! 움직이면 처음부터"
+      ],
+      "ignored" : [
+        "미워 미워! 또 무시했지\n{coaching}"
+      ],
+      "issues" : {
+        "forwardHead" : {
+          "warning" : [
+            "으이구! 거북목 또야?"
+          ]
+        },
+        "headDown" : {
+          "warning" : [
+            "고개 들어! 미워"
+          ]
+        },
+        "headTilt" : {
+          "warning" : [
+            "흥! 고개 똑바로"
+          ]
+        },
+        "leaning" : {
+          "warning" : [
+            "또 기울었잖아! 으이구"
+          ]
+        },
+        "shoulderTilt" : {
+          "warning" : [
+            "어깨! 어휴"
+          ]
+        },
+        "slumped" : {
+          "warning" : [
+            "어휴... 누워서 일하지 마"
+          ]
+        },
+        "tooClose" : {
+          "warning" : [
+            "화면에 붙지 마! 바보야"
+          ]
+        }
+      },
+      "landed" : [
+        "흥 여기 둘 거면 말을 하든가"
+      ],
+      "landedHard" : [
+        "아! 건들지 말랬지"
+      ],
+      "poke" : [
+        "건들지 마!",
+        "돈 터치 미",
+        "나한테 손대지 마",
+        "흥!"
+      ],
+      "stageDown" : [
+        "'{stage}'까지 왔어! 미워 진짜"
+      ],
+      "stageUp" : [
+        "흥 '{stage}'\n조금은 봐줄게"
+      ],
+      "stretchArms" : [
+        "스트레칭! 팔 올려 당장"
+      ],
+      "stretchDone" : [
+        "흥 조금 시원하네"
+      ],
+      "stretchHold" : [
+        "{seconds}초 버텨"
+      ],
+      "stretchNeckFirst" : [
+        "목 기울여! 천천히"
+      ],
+      "stretchNeckSecond" : [
+        "반대!"
+      ],
+      "stretchSkipped" : [
+        "또 건너뛰었어! 미워"
+      ]
+    },
+    "pouty" : {
+      "corrected" : [
+        "그래 그거",
+        "됐어! 그 자세 유지해"
+      ],
+      "greeting" : [
+        "왔어? 오늘은 잘하자"
+      ],
+      "held" : [
+        "어허! 어디 가",
+        "내려줘"
+      ],
+      "holdBroken" : [
+        "어허! 풀렸어 다시"
+      ],
+      "holdCount" : [
+        "그대로 {seconds}초"
+      ],
+      "ignored" : [
+        "어허! 그대로잖아\n{coaching}"
+      ],
+      "issues" : {
+        "forwardHead" : {
+          "warning" : [
+            "거북목 나왔어"
+          ]
+        },
+        "headDown" : {
+          "warning" : [
+            "어허! 고개 들어"
+          ]
+        },
+        "headTilt" : {
+          "warning" : [
+            "고개 삐뚤어졌어"
+          ]
+        },
+        "leaning" : {
+          "warning" : [
+            "몸 기울었어"
+          ]
+        },
+        "shoulderTilt" : {
+          "warning" : [
+            "어깨 짝짝이야"
+          ]
+        },
+        "slumped" : {
+          "warning" : [
+            "어허! 의자에 누웠잖아"
+          ]
+        },
+        "tooClose" : {
+          "warning" : [
+            "화면에 너무 붙었어"
+          ]
+        }
+      },
+      "landed" : [
+        "여기도 괜찮네"
+      ],
+      "landedHard" : [
+        "아! 살살 좀"
+      ],
+      "poke" : [
+        "왜 찔러! 참나",
+        "자세나 신경 써",
+        "어허! 일이나 해",
+        "오늘 {corrected}번 고쳤어! 더 해"
+      ],
+      "stageDown" : [
+        "기분 별로야\n이제 '{stage}'"
+      ],
+      "stageUp" : [
+        "좀 나아졌네\n이제 '{stage}'"
+      ],
+      "stretchArms" : [
+        "스트레칭 시간! 팔 쭉 올려"
+      ],
+      "stretchDone" : [
+        "됐어! 좀 낫지?"
+      ],
+      "stretchHold" : [
+        "그대로 {seconds}초"
+      ],
+      "stretchNeckFirst" : [
+        "목 스트레칭! 한쪽으로 천천히"
+      ],
+      "stretchNeckSecond" : [
+        "반대쪽도"
+      ],
+      "stretchSkipped" : [
+        "안 했지? 다음엔 해"
+      ]
+    },
+    "rude" : {
+      "corrected" : [
+        "흥 진작 그러지",
+        "으이구 하면 되잖아"
+      ],
+      "greeting" : [
+        "흥 왔네",
+        "왔네? 오늘은 미워하게 만들지 마"
+      ],
+      "held" : [
+        "놔! 미워",
+        "흥 들지 마"
+      ],
+      "holdBroken" : [
+        "으이구 움직였잖아! 처음부터"
+      ],
+      "holdCount" : [
+        "{seconds}초 버텨! 움직이지 말고"
+      ],
+      "ignored" : [
+        "미워! 또 무시하네\n{coaching}",
+        "어휴... 말을 안 들어\n{coaching}"
+      ],
+      "issues" : {
+        "forwardHead" : {
+          "warning" : [
+            "으이구! 거북목 또 나왔어"
+          ]
+        },
+        "headDown" : {
+          "warning" : [
+            "어휴... 고개 좀 들어"
+          ]
+        },
+        "headTilt" : {
+          "warning" : [
+            "흥! 고개 삐뚤어졌어"
+          ]
+        },
+        "leaning" : {
+          "warning" : [
+            "또 기울었어! 으이구"
+          ]
+        },
+        "shoulderTilt" : {
+          "warning" : [
+            "어깨 좀 펴! 어휴"
+          ]
+        },
+        "slumped" : {
+          "warning" : [
+            "어휴... 또 누웠어"
+          ]
+        },
+        "tooClose" : {
+          "warning" : [
+            "으이구 화면에 붙었잖아"
+          ]
+        }
+      },
+      "landed" : [
+        "어휴 여기 둘 거면 미리 말하지"
+      ],
+      "landedHard" : [
+        "아! 미워 진짜"
+      ],
+      "poke" : [
+        "흥!",
+        "미워",
+        "건드리지 말고 자세나 고쳐! 바보야",
+        "어휴... XP {xp}"
+      ],
+      "stageDown" : [
+        "'{stage}'까지 왔어! 미워"
+      ],
+      "stageUp" : [
+        "흥 조금은 봐줄게\n이제 '{stage}'"
+      ],
+      "stretchArms" : [
+        "스트레칭! 팔 올려 지금"
+      ],
+      "stretchDone" : [
+        "흥 좀 낫네"
+      ],
+      "stretchHold" : [
+        "{seconds}초 버텨"
+      ],
+      "stretchNeckFirst" : [
+        "목 옆으로 기울여! 천천히"
+      ],
+      "stretchNeckSecond" : [
+        "반대쪽"
+      ],
+      "stretchSkipped" : [
+        "또 안 했어! 미워",
+        "메롱 이제 몰라"
+      ]
+    },
+    "sassy" : {
+      "corrected" : [
+        "흥 진작 그러지",
+        "그래 그거야! 바보"
+      ],
+      "greeting" : [
+        "흥 왔어?",
+        "왔어? 오늘은 좀 잘해"
+      ],
+      "held" : [
+        "어디 가는데! 참나",
+        "흥 내려줘"
+      ],
+      "holdBroken" : [
+        "풀렸잖아! 다시"
+      ],
+      "holdCount" : [
+        "그대로 {seconds}초"
+      ],
+      "ignored" : [
+        "바보야! 그대로잖아\n{coaching}",
+        "메롱! 또 무시했지\n{coaching}"
+      ],
+      "issues" : {
+        "forwardHead" : {
+          "warning" : [
+            "거북목 또 나왔어! 바보야"
+          ]
+        },
+        "headDown" : {
+          "warning" : [
+            "고개 들어! 메롱"
+          ]
+        },
+        "headTilt" : {
+          "warning" : [
+            "흥 고개 기울었잖아"
+          ]
+        },
+        "leaning" : {
+          "warning" : [
+            "몸 기울었어! 바로 앉아"
+          ]
+        },
+        "shoulderTilt" : {
+          "warning" : [
+            "어깨 짝짝이야! 참나"
+          ]
+        },
+        "slumped" : {
+          "warning" : [
+            "누워서 일해? 참나"
+          ]
+        },
+        "tooClose" : {
+          "warning" : [
+            "화면에 얼굴 박겠다! 바보야"
+          ]
+        }
+      },
+      "landed" : [
+        "흥 나쁘지 않네"
+      ],
+      "landedHard" : [
+        "아! 살살 해 바보야"
+      ],
+      "poke" : [
+        "메롱",
+        "흥!",
+        "참나 또 찔러?",
+        "오늘 {corrected}번 고쳤어! 더 해"
+      ],
+      "stageDown" : [
+        "'{stage}' 됐다! 바보야"
+      ],
+      "stageUp" : [
+        "흥 좀 나아졌네\n이제 '{stage}'"
+      ],
+      "stretchArms" : [
+        "스트레칭! 팔 쭉 올려"
+      ],
+      "stretchDone" : [
+        "흥 좀 낫지?"
+      ],
+      "stretchHold" : [
+        "그대로 {seconds}초"
+      ],
+      "stretchNeckFirst" : [
+        "목 스트레칭! 한쪽으로 천천히"
+      ],
+      "stretchNeckSecond" : [
+        "반대쪽도"
+      ],
+      "stretchSkipped" : [
+        "안 했지? 바보야",
+        "메롱 몸 굳어도 몰라"
+      ]
+    },
+    "sweet" : {
+      "corrected" : [
+        "지금 너무 좋아요",
+        "그 자세 진짜 멋져요",
+        "반할 것 같아요"
+      ],
+      "greeting" : [
+        "보고 싶었어요"
+      ],
+      "held" : [
+        "어디 데려가요? 좋아요"
+      ],
+      "ignored" : [
+        "저 조금 서운해요\n{coaching}"
+      ],
+      "landed" : [
+        "여기도 좋아요! 옆에만 있으면"
+      ],
+      "poke" : [
+        "저 좋아요?",
+        "안아줘요",
+        "헤헤 좋아요",
+        "오늘 {corrected}번이나 지켰어요! 멋져요"
+      ],
+      "stageUp" : [
+        "점점 좋아져요\n이제 '{stage}'"
+      ],
+      "stretchDone" : [
+        "같이 하니까 너무 좋아요"
+      ]
+    }
+  }
+}
