@@ -1,6 +1,6 @@
 # 보안 · 개인정보 안내
 
-회사 보안 검토용으로 허피(허리피라우, 앱 파일 이름 PosturePet)의 설치 방식, 외부 통신, 저장 데이터를 정리했어요. 실측 결과는 2026-10-27, macOS 26.5.1에서 확인한 값이에요.
+회사 보안 검토용으로 허피(허리피라우)의 설치 방식, 외부 통신, 저장 데이터를 정리했어요. 실측 결과는 2026-10-27, macOS 26.5.1에서 확인한 값이에요.
 
 ## 한눈에
 
@@ -85,7 +85,7 @@
 | 카메라 영상 | 이 PC 안에서 MediaPipe 로 분석하고 바로 버려요. 저장도 전송도 하지 않아요 |
 | 외부 통신 | 설정 파일(`raw.githubusercontent.com/aueoj/posture-pet/main/remote-config.json`)과 새 버전 확인(`api.github.com/repos/aueoj/posture-pet/releases/latest`), 받기만 해요. 별점·버그 폼은 사용자가 고를 때만 브라우저로 열어요 |
 | 새 버전 | 자동 설치 없음. 펫이 알려주고, 사용자가 "받기"를 누르면 브라우저로 설치 파일을 받아요 |
-| 저장 위치 | `%APPDATA%\PosturePet\` 의 `settings.json`(설정·경험치와 서명), `history.json`(30일), `logs\diagnostic.log`(켰을 때만, 5MB 넘으면 교체) |
+| 저장 위치 | `%APPDATA%\Huppy\` 의 `settings.json`(설정·경험치와 서명), `history.json`(30일), `logs\diagnostic.log`(켰을 때만, 5MB 넘으면 교체) |
 
 - MediaPipe 라이브러리는 기본으로 Google 에 사용 통계를 보내려고 해요(`odml.pa.googleapis.com`). 펫 화면의 보안 정책(CSP)이 앱 밖으로 나가는 연결을 전부 막아서 실제로는 나가지 않아요. 개발 중 실행 기록에서 막힌 것을 확인했어요.
 - 펫 화면은 Node·파일에 직접 손댈 수 없고(contextIsolation, sandbox), 정해 둔 기능만 main 프로세스에 요청해요. 카메라 권한은 펫 화면에만 주고 다른 권한은 전부 거절해요.

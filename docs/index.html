@@ -233,7 +233,7 @@
         <h1>자세가 무너지면<br><em>펫이 먼저 알아봐요</em></h1>
         <p class="lead">Mac 카메라로 틈틈이 자세를 보다가 거북목이 보이면 바로 말을 걸어요. 잘 지키면 펫이 자라고 계속 무시하면 점점 삐뚤어집니다.</p>
         <div class="dl" id="download">
-          <a class="btn" data-dl href="https://github.com/aueoj/posture-pet/releases/latest/download/PosturePet-mac.zip">
+          <a class="btn" data-dl href="https://github.com/aueoj/posture-pet/releases/latest/download/Huppy-mac.zip">
             <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7 1h2v8h2l-3 3-3-3h2zM2 12h2v2h8v-2h2v4H2z"/></svg>
             <span data-dl-label>Mac용 다운로드</span>
           </a>
@@ -319,7 +319,7 @@
       <div>
         <h2>설치</h2>
         <ol class="steps-list">
-          <li><b>PosturePet-mac.zip</b>을 받아 압축을 풀고, 나온 <b>PosturePet.app</b>을 <b>응용 프로그램</b> 폴더로 옮겨요.</li>
+          <li><b>Huppy-mac.zip</b>을 받아 압축을 풀고, 나온 <b>허피</b> 앱을 <b>응용 프로그램</b> 폴더로 옮겨요.</li>
           <li>처음 열면 "확인할 수 없음" 창이 떠요. <kbd>완료</kbd>를 눌러 닫아요.</li>
           <li><b>시스템 설정 → 개인정보 보호 및 보안</b> 맨 아래에서 <kbd>그래도 열기</kbd>를 누르고 암호 입력.</li>
           <li>다시 열면 화면 아래에 펫이 나와요. 바르게 앉아서 펫을 누르면 시작.</li>
@@ -337,7 +337,7 @@
       <img class="px" src="sprites/happy-b.png" alt="">
       <h2>오늘 거북목, 몇 번 나왔을까요?</h2>
       <p class="sub" style="margin:0 auto 28px">무료예요. 세는 건 펫이 할게요.</p>
-      <a class="btn" data-dl href="https://github.com/aueoj/posture-pet/releases/latest/download/PosturePet-mac.zip"><span data-dl-label>Mac용 다운로드</span></a>
+      <a class="btn" data-dl href="https://github.com/aueoj/posture-pet/releases/latest/download/Huppy-mac.zip"><span data-dl-label>Mac용 다운로드</span></a>
     </div>
   </section>
 </main>
@@ -442,7 +442,7 @@
   fetch("https://api.github.com/repos/aueoj/posture-pet/releases/latest")
     .then(r => r.ok ? r.json() : Promise.reject())
     .then(rel => {
-      const asset = (rel.assets || []).find(a => a.name === "PosturePet-mac.zip");
+      const asset = (rel.assets || []).find(a => a.name === "Huppy-mac.zip");
       document.querySelector("[data-version]").textContent = rel.tag_name;
       if (asset) {
         const mb = (asset.size / 1048576).toFixed(1);
