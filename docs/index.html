@@ -181,6 +181,7 @@
   kbd { font: 13px var(--pixel); padding: 1px 6px; border: 2px solid var(--ink); background: #fff; white-space: nowrap; }
   .note { background: #FFF6DE; border: var(--line) solid var(--ink); padding: 16px 18px; font-size: 15px; }
   .note b { font-family: var(--pixel); font-weight: 400; }
+  h3.os { font: 16px var(--pixel); margin: 22px 0 8px; }
   .win { margin-top: 18px; display: flex; gap: 14px; align-items: center; border: var(--line) dashed #9C9389; padding: 14px 18px; color: var(--muted); font-size: 15px; }
 
   .cta { text-align: center; }
@@ -229,17 +230,17 @@
   <div class="hero">
     <div class="wrap">
       <div>
-        <div class="eyebrow">Mac용 자세 교정 펫</div>
+        <div class="eyebrow">Mac·Windows용 자세 교정 펫</div>
         <h1>자세가 무너지면<br><em>펫이 먼저 알아봐요</em></h1>
-        <p class="lead">Mac 카메라로 틈틈이 자세를 보다가 거북목이 보이면 바로 말을 걸어요. 잘 지키면 펫이 자라고 계속 무시하면 점점 삐뚤어집니다.</p>
+        <p class="lead">노트북 카메라로 틈틈이 자세를 보다가 거북목이 보이면 바로 말을 걸어요. 잘 지키면 펫이 자라고 계속 무시하면 점점 삐뚤어집니다.</p>
         <div class="dl" id="download">
           <a class="btn" data-dl href="https://github.com/aueoj/posture-pet/releases/latest/download/Huppy-mac.zip">
             <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7 1h2v8h2l-3 3-3-3h2zM2 12h2v2h8v-2h2v4H2z"/></svg>
             <span data-dl-label>Mac용 다운로드</span>
           </a>
-          <span class="btn ghost small" aria-disabled="true">Windows는 준비 중</span>
+          <a class="btn ghost small" data-dl-alt href="https://github.com/aueoj/posture-pet/releases/latest/download/Huppy-windows-setup.exe">Windows용 다운로드</a>
         </div>
-        <div class="meta" data-meta>macOS 14 이상 · Apple 실리콘과 인텔 · 무료</div>
+        <div class="meta" data-meta>macOS 14 이상 · Windows 10·11 · 무료</div>
       </div>
 
       <div class="screen" aria-label="허피 미리보기">
@@ -303,13 +304,13 @@
 
   <section id="privacy">
     <div class="wrap">
-      <h2>영상은 이 Mac 밖으로 나가지 않아요</h2>
+      <h2>영상은 이 컴퓨터 밖으로 나가지 않아요</h2>
       <p class="sub">자세를 보려면 카메라가 필요해요. 대신 영상은 어디에도 남지 않습니다.</p>
       <div class="privacy">
         <div><b>저장 안 함</b><span>사진도 영상도 저장하지 않아요. 얼굴 위치 같은 숫자만 잠깐 계산하고 버려요.</span></div>
-        <div><b>전송 안 함</b><span>분석은 Apple Vision으로 이 Mac 안에서 끝나요.</span></div>
-        <div><b>몇 초만 켜짐</b><span>확인할 때만 잠깐 켜요. 초록 불이 들어오는 그 순간이에요.</span></div>
-        <div><b>계정 없음</b><span>가입도 로그인도 없어요. 코드는 전부 공개.</span></div>
+        <div><b>전송 안 함</b><span>분석은 이 컴퓨터 안에서 끝나요. Mac은 Apple Vision, Windows는 MediaPipe로 봐요.</span></div>
+        <div><b>몇 초만 켜짐</b><span>확인할 때만 잠깐 켜요. 카메라 불이 들어오는 그 순간이에요.</span></div>
+        <div><b>계정 없음</b><span>가입도 로그인도 없어요.</span></div>
       </div>
     </div>
   </section>
@@ -318,16 +319,23 @@
     <div class="wrap install">
       <div>
         <h2>설치</h2>
+        <h3 class="os">Mac</h3>
         <ol class="steps-list">
           <li><b>Huppy-mac.zip</b>을 받아 압축을 풀고, 나온 <b>허피</b> 앱을 <b>응용 프로그램</b> 폴더로 옮겨요.</li>
           <li>처음 열면 "확인할 수 없음" 창이 떠요. <kbd>완료</kbd>를 눌러 닫아요.</li>
           <li><b>시스템 설정 → 개인정보 보호 및 보안</b> 맨 아래에서 <kbd>그래도 열기</kbd>를 누르고 암호 입력.</li>
           <li>다시 열면 화면 아래에 펫이 나와요. 바르게 앉아서 펫을 누르면 시작.</li>
         </ol>
+        <h3 class="os">Windows</h3>
+        <ol class="steps-list">
+          <li><b>Huppy-windows-setup.exe</b>를 받아 실행해요.</li>
+          <li>"Windows의 PC 보호" 창이 뜨면 <kbd>추가 정보</kbd> → <kbd>실행</kbd>을 눌러요.</li>
+          <li>알아서 설치되고 작업 표시줄 위에 펫이 나와요. 바르게 앉아서 펫을 누르면 시작.</li>
+        </ol>
       </div>
       <div>
-        <div class="note"><b>"그래도 열기"는 왜 필요한가요?</b><br>개인이 무료로 만든 앱이라 Apple 유료 인증이 없어요. 처음 한 번만 하면 되고 업데이트는 펫이 앱 안에서 알려줘요.</div>
-        <div class="win"><img class="px" src="sprites/skate-a.png" alt="" style="width:110px;margin:-14px -8px -10px -14px">Windows 버전은 준비 중이에요. GitHub에서 Watch를 누르면 소식을 받아볼 수 있어요.</div>
+        <div class="note"><b>경고 창은 왜 뜨나요?</b><br>개인이 무료로 만든 앱이라 Apple·Microsoft 유료 인증이 없어요. 처음 한 번만 하면 되고 새 버전은 펫이 알려줘요.</div>
+        <div class="win"><img class="px" src="sprites/skate-a.png" alt="" style="width:110px;margin:-14px -8px -10px -14px">Windows는 작업 표시줄 오른쪽 아래 펫 아이콘에서 설정과 쉬기를 고를 수 있어요.</div>
       </div>
     </div>
   </section>
@@ -344,7 +352,7 @@
 
 <footer>
   <div class="wrap">
-    <span>허피(허리피라우) <span data-version></span> · 소스 코드 <a href="https://github.com/aueoj/posture-pet">github.com/aueoj/posture-pet</a></span>
+    <span>허피(허리피라우) <span data-version></span> · 배포 파일 <a href="https://github.com/aueoj/posture-pet/releases">github.com/aueoj/posture-pet</a></span>
     <span>글꼴 <a href="https://github.com/quiple/galmuri">Galmuri</a> · <a href="https://freesentation.blog/">Freesentation</a> (SIL OFL)</span>
   </div>
 </footer>
@@ -432,21 +440,31 @@
   range.addEventListener("input", () => setStage(Number(range.value)));
   setStage(0);
 
-  // Windows·휴대폰이면 버튼 문구를 바꾼다
+  // Windows 면 Windows 설치 파일을 앞에, 휴대폰이면 PC에서 받으라고 안내한다
   const ua = navigator.userAgent;
-  const label = /Windows/.test(ua) ? "Mac용 다운로드 (Windows는 준비 중)"
-              : /iPhone|iPad|Android/.test(ua) ? "Mac에서 받아주세요" : null;
-  if (label) document.querySelectorAll("[data-dl-label]").forEach(el => { el.textContent = label; });
+  const base = "https://github.com/aueoj/posture-pet/releases/latest/download/";
+  const isWin = /Windows/.test(ua);
+  const os = isWin
+    ? { file: "Huppy-windows-setup.exe", label: "Windows용 다운로드", meta: "Windows 10·11 (64비트)" }
+    : { file: "Huppy-mac.zip", label: "Mac용 다운로드", meta: "macOS 14 이상 · Apple 실리콘과 인텔" };
+  if (isWin) {
+    document.querySelectorAll('a[data-dl][href*="/releases/"]').forEach(a => { a.href = base + os.file; });
+    const alt = document.querySelector("[data-dl-alt]");
+    alt.href = base + "Huppy-mac.zip";
+    alt.textContent = "Mac용 다운로드";
+  }
+  const label = /iPhone|iPad|Android/.test(ua) ? "PC에서 받아주세요" : os.label;
+  document.querySelectorAll("[data-dl-label]").forEach(el => { el.textContent = label; });
 
   // 최신 버전·크기
   fetch("https://api.github.com/repos/aueoj/posture-pet/releases/latest")
     .then(r => r.ok ? r.json() : Promise.reject())
     .then(rel => {
-      const asset = (rel.assets || []).find(a => a.name === "Huppy-mac.zip");
+      const asset = (rel.assets || []).find(a => a.name === os.file);
       document.querySelector("[data-version]").textContent = rel.tag_name;
       if (asset) {
         const mb = (asset.size / 1048576).toFixed(1);
-        document.querySelector("[data-meta]").textContent = `${rel.tag_name} · ${mb}MB · macOS 14 이상 · Apple 실리콘과 인텔 · 무료`;
+        document.querySelector("[data-meta]").textContent = `${rel.tag_name} · ${mb}MB · ${os.meta} · 무료`;
       }
     })
     .catch(() => {});

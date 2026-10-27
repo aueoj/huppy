@@ -20,4 +20,6 @@ used in another product without prior written permission from the copyright hold
 Public availability of this repository does not grant any license.
 
 Third-party components keep their own licenses: Sparkle (MIT), Galmuri and
-Freesentation fonts (SIL Open Font License 1.1).
+Freesentation fonts (SIL Open Font License 1.1). The Windows app includes
+Electron (MIT; Chromium licenses in LICENSES.chromium.html) and MediaPipe with
+its models (Apache License 2.0, copy in resources/licenses).

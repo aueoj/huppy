@@ -1,10 +1,10 @@
 # 허피 (허리피라우)
 
-자세가 무너지면 화면 구석의 도트 펫이 알려주는 Mac 앱이에요. 잘 지키면 진화하고, 안 지키면 흑화해요.
+자세가 무너지면 화면 구석의 도트 펫이 알려주는 Mac·Windows 앱이에요. 잘 지키면 진화하고, 안 지키면 흑화해요.
 
 **다운로드: [aueoj.github.io/posture-pet](https://aueoj.github.io/posture-pet/)**
 
-## 설치
+## 설치 (Mac)
 
 1. [최신 릴리스](https://github.com/aueoj/posture-pet/releases/latest)에서 `Huppy-mac.zip`을 받아 압축을 풀고, 나온 `허피` 앱을 응용 프로그램 폴더로 옮겨요
 2. 처음 열면 "확인할 수 없음" 창이 떠요. 완료를 눌러 닫아요
@@ -13,9 +13,17 @@
 
 처음 한 번만 하면 되고, 업데이트는 펫이 앱 안에서 알려줘요. macOS 14 이상, Apple 실리콘과 인텔 모두 돼요.
 
+## 설치 (Windows)
+
+1. [최신 릴리스](https://github.com/aueoj/posture-pet/releases/latest)에서 `Huppy-windows-setup.exe`를 받아 실행해요
+2. "Windows의 PC 보호" 창이 뜨면 **추가 정보 → 실행**을 눌러요
+3. 알아서 설치되고 작업 표시줄 위에 펫이 나와요. 바르게 앉고 펫을 누르면 시작해요
+
+Windows 10·11(64비트)에서 돼요. 설정과 쉬기는 작업 표시줄 오른쪽 아래 펫 아이콘에서 골라요. 새 버전은 펫이 알려주고, 받은 설치 파일을 실행하면 그대로 업데이트돼요.
+
 ## 개인정보
 
-카메라 영상은 Mac 밖으로 나가지 않고 저장하지도 않아요. 사용자 정보를 수집하지 않아요. 자세한 내용은 [SECURITY.md](SECURITY.md)에 있어요.
+카메라 영상은 컴퓨터 밖으로 나가지 않고 저장하지도 않아요. 사용자 정보를 수집하지 않아요. 자세한 내용은 [SECURITY.md](SECURITY.md)에 있어요.
 
 ## 이 저장소
 
