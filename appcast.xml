@@ -3,6 +3,15 @@
   <channel>
     <title>PosturePet</title>
     <item>
+      <title>0.1.11</title>
+      <pubDate>Wed, 28 Oct 2026 21:56:05 +0900</pubDate>
+      <sparkle:version>13</sparkle:version>
+      <sparkle:shortVersionString>0.1.11</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>펫 대사를 새로 다듬었어요. 단계마다 말투가 더 또렷해지고 마왕은 더 비꼬아요</p>]]></description>
+      <enclosure url="https://github.com/aueoj/huppy/releases/download/v0.1.11/Huppy-0.1.11.zip" sparkle:edSignature="jHz8QhmXaqjSqN4509XBMewnJETOpuzs2lcjVt28nlgIrlTf3eNpxkhmkP18AbUus9MvIJkqUwGl0hmdTZ1RCA==" length="1593288" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>0.1.10</title>
       <pubDate>Wed, 28 Oct 2026 10:05:22 +0900</pubDate>
       <sparkle:version>12</sparkle:version>
