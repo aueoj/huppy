@@ -5,24 +5,33 @@
   // 미리 불러와서 프레임이 바뀔 때 깜빡이지 않게
   ["idle", "alert", "hold", "happy", "whip", "stretch", "rest"].forEach(n => ["a", "b"].forEach(f => { new Image().src = S(`${n}-${f}`); }));
 
-  // 히어로: 경고 → 유지 → 칭찬 → … → 무시 → 채찍
+  // 히어로: 경고 → 유지 → 칭찬 → 스트레칭 → … → 무시 → 채찍
+  // cam 은 카메라 창 상태: [상태, 표시, 거리]
   const scenes = [
-    { pose: "alert", say: "거북목 나왔어요!\n턱 당기고 목은 뒤로", ms: 2600 },
-    { pose: "hold", say: "그대로 5초만!", ms: 900 },
-    { pose: "hold", say: "그대로 3초만!", ms: 900 },
-    { pose: "hold", say: "그대로 1초만!", ms: 900 },
-    { pose: "happy", say: "그거예요!", ms: 2200, xp: "+10 XP" },
-    { pose: "idle", say: null, ms: 1800 },
-    { pose: "stretch", say: "스트레칭할 시간\n두 팔 머리 위로 쭉", ms: 2600 },
-    { pose: "whip", say: "건너뛰면 몸 굳어요\n다음엔 꼭 해요", ms: 2400, xp: "-12 XP" },
-    { pose: "rest", say: "30분 쉴게요", ms: 2400 },
+    { pose: "alert", say: "거북목 나왔어요!\n턱 당기고 목은 뒤로", ms: 2600, cam: ["fwd", "거북목 감지", "44cm"] },
+    { pose: "hold", say: "그대로 5초만!", ms: 900, cam: ["ok", "바른 자세", "57cm"] },
+    { pose: "hold", say: "그대로 3초만!", ms: 900, cam: ["ok", "바른 자세", "57cm"] },
+    { pose: "hold", say: "그대로 1초만!", ms: 900, cam: ["ok", "바른 자세", "57cm"] },
+    { pose: "happy", say: "그거예요!", ms: 2200, xp: "+10 XP", cam: ["ok", "바른 자세", "57cm"] },
+    { pose: "idle", say: null, ms: 1800, cam: ["off", "카메라 꺼짐\n90초 뒤 다시 볼게요"] },
+    { pose: "stretch", say: "스트레칭할 시간!\n두 팔 머리 위로 쭉", ms: 2600, cam: ["arms", "기지개 인식"] },
+    { pose: "happy", say: "시원하죠?", ms: 1800, cam: ["arms", "기지개 인식"] },
+    { pose: "idle", say: null, ms: 1400, cam: ["off", "카메라 꺼짐\n90초 뒤 다시 볼게요"] },
+    { pose: "stretch", say: "스트레칭할 시간!\n두 팔 머리 위로 쭉", ms: 2200, cam: ["look", "손을 찾는 중"] },
+    { pose: "whip", say: "건너뛰면 몸 굳어요\n다음엔 꼭 해요", ms: 2400, xp: "-12 XP", cam: ["miss", "기지개 안 함"] },
+    { pose: "rest", say: "30분 쉴게요", ms: 2400, cam: ["off", "카메라 꺼짐\n쉬는 중"] },
   ];
   const img = document.querySelector("[data-hero-img]");
   const bubble = document.querySelector("[data-hero-bubble]");
   const xp = document.querySelector("[data-hero-xp]");
+  const cam = document.querySelector("[data-cam]");
   let scene = 0, frame = 0, until = 0;
   function show(i) {
     const s = scenes[i];
+    const [state, label, dist = ""] = s.cam;
+    cam.dataset.state = state;
+    document.querySelector(state === "off" ? "[data-cam-off]" : "[data-cam-tag]").textContent = label;
+    document.querySelector("[data-cam-dist]").textContent = dist;
     bubble.classList.toggle("hide", !s.say);
     if (s.say) bubble.textContent = s.say;
     xp.classList.remove("on", "minus");
