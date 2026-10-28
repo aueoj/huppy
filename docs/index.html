@@ -155,7 +155,7 @@
   .evo-side .quote { font: 17px/1.6 var(--pixel); margin: 6px 0 14px; min-height: 2.6em; }
   .evo-side p { margin: 0; color: #4A443E; font-size: 15px; }
   input[type=range] { width: 100%; margin: 22px 0 6px; accent-color: var(--clay); }
-  .ticks { display: grid; grid-template-columns: repeat(11, 1fr); text-align: center; }
+  .ticks { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); text-align: center; }
   .ticks button { all: unset; cursor: pointer; display: flex; flex-direction: column; align-items: center; font: 11px var(--pixel); color: var(--muted); }
   .ticks button img { width: 56px; transition: transform .12s; }
   .ticks button:hover img, .ticks button[aria-current="true"] img { transform: translateY(-4px); }
@@ -194,12 +194,12 @@
 
   @media (max-width: 860px) {
     nav { display: none; }
-    .hero .wrap, .install, .evo { grid-template-columns: 1fr; }
+    .hero .wrap, .install, .evo { grid-template-columns: minmax(0, 1fr); }
     .hero { padding-top: 40px; }
     h1 { font-size: 27px; }
     .steps { grid-template-columns: repeat(2, 1fr); }
     .grid2, .privacy { grid-template-columns: 1fr; }
-    .ticks button img { width: 40px; }
+    .ticks button img { width: 100%; max-width: 40px; }
     .ticks button span { display: none; }
   }
   @media (max-width: 520px) {
@@ -232,9 +232,9 @@
   <div class="hero">
     <div class="wrap">
       <div>
-        <div class="eyebrow">Mac·Windows용 자세 교정 펫</div>
-        <h1>자세가 무너지면<br><em>펫이 먼저 알아봐요</em></h1>
-        <p class="lead">노트북 카메라로 틈틈이 자세를 보다가 거북목이 보이면 바로 말을 걸어요. 잘 지키면 펫이 자라고 계속 무시하면 점점 삐뚤어집니다.</p>
+        <div class="eyebrow">작고 소중한 자세 교정 펫</div>
+        <h1>나만의 거북목 지킴이<br><em>허피를 키워보세요.</em></h1>
+        <p class="lead">내 자세 혹은 스트레칭을 얼마나 잘 따르느냐에 따라 허피를 변화시킬 수 있어요. 내 허피는 어떻게 변할까요?</p>
         <div class="dl" id="download">
           <a class="btn" data-dl href="https://github.com/aueoj/huppy/releases/latest/download/Huppy-mac.zip">
             <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7 1h2v8h2l-3 3-3-3h2zM2 12h2v2h8v-2h2v4H2z"/></svg>
@@ -260,8 +260,8 @@
 
   <section id="how">
     <div class="wrap">
-      <h2>지켜보는 방법</h2>
-      <p class="sub"><b>내가 편하고 바르게 앉은 자세</b>를 기억해요. 나빠질 때만 알려주고 허리를 더 펴거나 등받이에 기대는 건 그냥 둘 거니 걱정 마세요.</p>
+      <h2>어떻게 작동하나요?</h2>
+      <p class="sub">내가 바르게 앉은 자세를 기억하고, 틈틈이 체크해서 교정 혹은 칭찬을 할거예요.</p>
       <div class="steps">
         <div class="card"><img class="px" src="sprites/idle-a.png" alt=""><div class="n">01</div><h3>바른 자세 기억</h3><p>바르게 앉은 뒤, 펫을 눌러서 내 자세를 기억시키세요.</p></div>
         <div class="card"><img class="px" src="sprites/read-a.png" alt=""><div class="n">02</div><h3>90초마다 살짝 확인</h3><p>카메라를 잠깐 켜서 자세를 확인할게요.</p></div>
@@ -273,7 +273,7 @@
 
   <section id="evolve">
     <div class="wrap">
-      <h2>하는 거에 따라 천사가 될 수도 있고 악마가 될 수도 있어</h2>
+      <h2>천사가 될 수도, 악마가 될 수도 있어요.</h2>
       <p class="sub">잘 지킬수록 애정 표현이 늘고, 경고를 흘려듣거나 스트레칭을 건너뛰면 경험치가 깎여요. 흑화할수록 투정이 심해지고 판정도 예민해지니까 조심하세요!</p>
       <div class="evo">
         <div class="evo-pet">
@@ -282,8 +282,8 @@
         </div>
         <div class="evo-side">
           <span class="tag" data-evo-tag>시작 단계</span>
-          <div class="quote" data-evo-quote>"거북목 나왔어요! 턱 당기고 목은 뒤로"</div>
-          <p data-evo-desc>모두 여기서 시작.</p>
+          <div class="quote" data-evo-quote>"턱 당기고 어깨 펴요!"</div>
+          <p data-evo-desc>모두 여기서부터 시작해요.</p>
           <input type="range" min="-5" max="5" step="1" value="0" data-evo-range aria-label="진화 단계">
           <div class="ticks" data-evo-ticks></div>
         </div>
@@ -355,6 +355,7 @@
 <footer>
   <div class="wrap">
     <span>허리피라우[허피] <span data-version></span> · 배포 파일 <a href="https://github.com/aueoj/huppy/releases">github.com/aueoj/huppy</a></span>
+    <span>캐릭터는 Anthropic Claude Code의 마스코트 Clawd를 바탕으로 만든 팬메이드예요. Anthropic과는 관계없는 개인 프로젝트예요.</span>
     <span>글꼴 <a href="https://github.com/quiple/galmuri">Galmuri</a> · <a href="https://freesentation.blog/">Freesentation</a> (SIL OFL)</span>
   </div>
 </footer>

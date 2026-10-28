@@ -35,4 +35,10 @@ Windows 10·11(64비트)에서 돼요. 설정과 쉬기는 작업 표시줄 오�
 | `appcast.xml` | 앱의 업데이트 확인 |
 | `remote-config.json` | 펫 대사와 판정 기준 |
 
+## 캐릭터
+
+캐릭터는 Anthropic Claude Code의 마스코트 Clawd를 바탕으로 만든 팬메이드예요. Anthropic과는 관계없는 개인 프로젝트예요.
+
+## 저작권
+
 소스 코드는 공개하지 않아요. 모든 내용의 저작권은 [LICENSE](LICENSE)를 따르고, 허락 없이 복제하거나 다른 제품에 쓸 수 없어요.
