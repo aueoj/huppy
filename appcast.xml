@@ -3,6 +3,15 @@
   <channel>
     <title>PosturePet</title>
     <item>
+      <title>0.1.10</title>
+      <pubDate>Wed, 28 Oct 2026 10:05:22 +0900</pubDate>
+      <sparkle:version>12</sparkle:version>
+      <sparkle:shortVersionString>0.1.10</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>고개를 많이 돌렸을 때 기울기를 잘못 읽어 혼내던 문제를 고쳤어요.</p>]]></description>
+      <enclosure url="https://github.com/aueoj/huppy/releases/download/v0.1.10/Huppy-0.1.10.zip" sparkle:edSignature="hM9iIZmIAFxHyVqJRXy0JYQoh8n9tcNOqZ/xi1KEG/dGPiG/bWrlfOTYqUD9jf/qj0Ct4zqb9Bg1lSxb1RaXBA==" length="1590970" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>0.1.9</title>
       <pubDate>Wed, 28 Oct 2026 08:50:41 +0900</pubDate>
       <sparkle:version>11</sparkle:version>
