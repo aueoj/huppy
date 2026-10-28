@@ -3,6 +3,15 @@
   <channel>
     <title>PosturePet</title>
     <item>
+      <title>0.1.9</title>
+      <pubDate>Wed, 28 Oct 2026 08:50:41 +0900</pubDate>
+      <sparkle:version>11</sparkle:version>
+      <sparkle:shortVersionString>0.1.9</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>책이나 영상을 볼 때도 계속 자세를 봐요. 옆 화면을 볼 때 너무 예민하던 판정을 고쳤어요.</p>]]></description>
+      <enclosure url="https://github.com/aueoj/huppy/releases/download/v0.1.9/Huppy-0.1.9.zip" sparkle:edSignature="bTHnbBL3aCO3S7zWSdHsYwtM0RxZqqF8prruIsMHWSLcovr26dUyITrh9xD/f61Da7UHY25BFn3O+bvnkm9ICw==" length="1590328" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>0.1.8</title>
       <pubDate>Wed, 28 Oct 2026 08:09:39 +0900</pubDate>
       <sparkle:version>10</sparkle:version>
