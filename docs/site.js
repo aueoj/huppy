@@ -105,6 +105,23 @@
   const label = /iPhone|iPad|Android/.test(ua) ? "PC에서 받아주세요" : os.label;
   document.querySelectorAll("[data-dl-label]").forEach(el => { el.textContent = label; });
 
+  // 방문 수·다운로드 클릭 수 (GoatCounter, 쿠키 없음). 주소 끝에 #skipgc 를 붙여 한 번 열면 그 브라우저는 세지 않는다
+  let skipCount = location.hostname !== "aueoj.github.io";
+  try {
+    if (location.hash === "#skipgc") { localStorage.setItem("skipgc", "t"); history.replaceState(null, "", location.pathname); }
+    if (localStorage.getItem("skipgc") === "t") skipCount = true;
+  } catch {}
+  function count(path, event) {
+    if (skipCount) return;
+    const q = new URLSearchParams({ p: path, t: document.title, rnd: Math.random().toString(36).slice(2) });
+    if (event) q.set("e", "true"); else if (document.referrer) q.set("r", document.referrer);
+    new Image().src = "https://huppy.goatcounter.com/count?" + q;
+  }
+  count(location.pathname);
+  document.querySelectorAll('a[href*="/releases/latest/download/"]').forEach(a => a.addEventListener("click", () => {
+    count(a.href.includes("windows") ? "download-windows" : "download-mac", true);
+  }));
+
   // 최신 버전·크기
   fetch("https://api.github.com/repos/aueoj/huppy/releases/latest")
     .then(r => r.ok ? r.json() : Promise.reject())
