@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보 처리방침 · 허리피라우[허피]</title>
+<meta name="description" content="허피가 다루는 정보와 보관 기간, 지우는 방법을 안내합니다.">
+<link rel="canonical" href="https://aueoj.github.io/huppy/privacy.html">
+<link rel="icon" href="sprites/stagep0.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@2.40.3/dist/galmuri.css" integrity="sha384-55uQGdclWjXwWY0yHikdtcfcat9pPBqMBCVFIeWjRhvPPUYbpJLhIJegzTcFoh/A" crossorigin="anonymous">
+<style>
+  /* 본문 글꼴 Freesentation (SIL OFL). 파일이 바뀌지 않게 커밋을 고정해서 불러온다. */
+  @font-face { font-family: "Freesentation"; font-weight: 400; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/Freesentation/freesentation@98f6b841fca55a23fbb0f9eb91acda0e16a676ea/woff2/Freesentation-4Regular.woff2") format("woff2"); }
+  @font-face { font-family: "Freesentation"; font-weight: 500; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/Freesentation/freesentation@98f6b841fca55a23fbb0f9eb91acda0e16a676ea/woff2/Freesentation-5Medium.woff2") format("woff2"); }
+  @font-face { font-family: "Freesentation"; font-weight: 700; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/Freesentation/freesentation@98f6b841fca55a23fbb0f9eb91acda0e16a676ea/woff2/Freesentation-7Bold.woff2") format("woff2"); }
+</style>
+<style>
+  /* 위쪽 토큰은 index.html 과 이름·값이 같다. 아래 '이 페이지에서만' 토큰은 index.html 이 본문에 직접 쓰던 값을 토큰으로 올린 것과 문서용으로 새로 둔 것이다. */
+  :root {
+    --cream: #FBF4E8;
+    --paper: #FFFDF8;
+    --ink: #1C1C1C;
+    --muted: #6B6259;
+    --clay: #D97757;
+    --clay-deep: #B85C3E;
+    --gold: #F5C842;
+    --night: #1E1013;
+    --night-2: #2A1418;
+    --line: 3px;
+    --pixel: "Galmuri11", "Galmuri14", ui-monospace, monospace;
+    --body: "Freesentation", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+
+    /* 이 페이지에서만 */
+    --ink-2: #3D3833;      /* 리드 문장. index .lead 와 같은 값. 크림 위 10.60:1 */
+    --ink-3: #4A443E;      /* 보조 글씨. index .privacy span 과 같은 값. 크림 위 8.78:1 */
+    --note: #FFF6DE;       /* 알림 상자 바탕. index .note 와 같은 값 */
+    --clay-text: #9E4A2F;  /* 점토색 작은 글씨. 크림 위 5.53:1, 종이 위 5.95:1 (--clay-deep 은 4.14:1 이라 글씨에 쓰지 않는다) */
+    --hair: #E2D8C9;       /* 정의 목록 줄 사이 가는 선. 글씨 아님 */
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    --measure: 70ch;
+  }
+  * { box-sizing: border-box; }
+  html, body { overflow-x: clip; }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font: 17px/1.7 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  img.px { image-rendering: pixelated; display: block; }
+  a { color: inherit; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  p, li, dd { overflow-wrap: break-word; text-wrap: pretty; }
+  h1, h2, h3 { overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+
+  /* 본문 단 하나: 70자 안팎, 가운데. 넓은 화면에서는 양옆 여백만 늘어난다 */
+  .doc { max-width: calc(var(--measure) + 40px); margin: 0 auto; padding: 0 20px; }
+
+  /* 상단 */
+  header { border-bottom: var(--line) solid var(--ink); }
+  header .doc { display: flex; align-items: center; gap: 20px; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 8px; font: 700 18px var(--pixel); text-decoration: none; }
+  .logo img { width: 52px; margin: -8px -6px -4px -10px; }
+
+  /* 픽셀 버튼: index.html 과 같은 값 */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px;
+    font: 16px var(--pixel);
+    color: var(--ink); background: var(--gold);
+    border: var(--line) solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+    text-decoration: none; cursor: pointer;
+    transition: transform .08s, box-shadow .08s;
+  }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+  .btn:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+  .btn.small { padding: 8px 14px; font-size: 13px; box-shadow: 3px 3px 0 var(--ink); margin-left: auto; }
+
+  /* 제목 영역 */
+  .intro { padding-top: 48px; }
+  .title-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+  h1 { font: 34px/1.35 var(--pixel); margin: 0; letter-spacing: -.01em; }
+  .title-sub { font: 18px/1.5 var(--pixel); margin: 8px 0 0; color: var(--ink-3); }
+  .pet { flex: none; width: 72px; height: 48px; overflow: clip; }
+  .pet img { width: 220px; height: auto; max-width: none; margin: -76px 0 0 -74px; }
+  .lead { color: var(--ink-2); margin: 24px 0 0; }
+  .meta { display: flex; flex-wrap: wrap; gap: 4px 24px; margin: 16px 0 0; font-size: 15px; color: var(--ink-3); }
+  .meta div { display: flex; gap: 8px; }
+  .meta dt { font-family: var(--pixel); font-size: 13px; line-height: 1.9; color: var(--ink); }
+  .meta dd { margin: 0; }
+  .note { margin-top: 24px; background: var(--note); border: var(--line) solid var(--ink); padding: 16px 20px; font-size: 15px; }
+  .note p { margin: 0; }
+  .note p + p { margin-top: 12px; }
+  .note b { font: 15px var(--pixel); display: block; margin-bottom: 4px; }
+  .note a { overflow-wrap: anywhere; }
+
+  /* 섹션 */
+  section { margin-top: 56px; padding-top: 32px; border-top: var(--line) solid var(--ink); scroll-margin-top: 16px; }
+  h2 { font: 26px/1.4 var(--pixel); margin: 0 0 12px; }
+  h3 { font: 16px/1.5 var(--pixel); margin: 32px 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  section > p, .vendor-intro { margin: 0 0 12px; }
+  ul.plain { margin: 0 0 12px; padding-left: 1.25em; }
+  ul.plain li { margin-bottom: 8px; padding-left: 4px; }
+  ul.plain li::marker { color: var(--muted); }
+  code { font: .86em var(--mono); background: var(--note); padding: 1px 4px; overflow-wrap: anywhere; }
+
+  /* 터미널 명령: 한 번 누르면 전체가 선택된다 */
+  pre.cmd { margin: 12px 0; padding: 12px 16px; background: var(--night); color: var(--paper); border: var(--line) solid var(--ink); white-space: pre-wrap; overflow-wrap: anywhere; }
+  pre.cmd code { font: 15px/1.6 var(--mono); background: none; padding: 0; color: inherit; user-select: all; -webkit-user-select: all; }
+
+  /* 한눈에 보기 */
+  .glance { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .glance li { border-top: var(--line) solid var(--ink); padding-top: 12px; }
+  .glance b { display: block; font: 15px var(--pixel); margin-bottom: 4px; }
+  .glance span { font-size: 15px; color: var(--ink-3); }
+
+  /* 목차 */
+  .toc { margin-top: 40px; background: var(--paper); border: var(--line) solid var(--ink); box-shadow: 5px 5px 0 var(--ink); padding: 16px 20px 12px; }
+  .toc h2 { font-size: 16px; margin: 0 0 8px; }
+  .toc ol { counter-reset: t; list-style: none; margin: 0; padding: 0; }
+  .toc li { counter-increment: t; display: flex; gap: 12px; padding: 4px 0; }
+  .toc li::before { content: counter(t, decimal-leading-zero); flex: none; width: 2em; font: 13px/1.9 var(--pixel); color: var(--clay-text); }
+  .toc a { text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* 업체별 카드: 카드 안에 다른 카드를 넣지 않는다 */
+  .vendor { margin: 0 0 28px; background: var(--paper); border: var(--line) solid var(--ink); box-shadow: 5px 5px 0 var(--ink); padding: 16px 20px 8px; }
+  .vendor-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 4px; }
+  .vendor h3 { margin: 0; }
+  .tag { font: 12px var(--pixel); padding: 2px 8px; border: 2px solid var(--ink); color: var(--clay-text); }
+  .facts { margin: 0; }
+  .facts div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 4px 16px; padding: 12px 0; border-top: 1px solid var(--hair); }
+  .facts div:first-child { border-top: 0; }
+  .facts dt { font: 13px/1.9 var(--pixel); color: var(--ink-3); }
+  .facts dd { margin: 0; font-size: 16px; }
+  .addr { display: block; overflow-wrap: anywhere; }
+  .url { overflow-wrap: anywhere; }
+
+  /* 단계 목록: index.html 의 설치 단계와 같은 모양 */
+  ol.steps-list { counter-reset: s; list-style: none; padding: 0; margin: 0 0 8px; }
+  ol.steps-list li { counter-increment: s; position: relative; padding: 0 0 20px 48px; }
+  ol.steps-list li::before { content: counter(s); position: absolute; left: 0; top: -2px; width: 32px; height: 32px; display: grid; place-items: center; font: 15px var(--pixel); background: var(--gold); border: var(--line) solid var(--ink); }
+  ol.steps-list p { margin: 0; }
+  .paths { margin: 12px 0 0; }
+  .paths div { padding: 8px 0; border-top: 1px solid var(--hair); }
+  .paths div:first-child { border-top: 0; padding-top: 0; }
+  .paths dt { line-height: 1.5; }
+  .paths dd { margin: 0; font-size: 15px; color: var(--ink-3); }
+
+  /* 도움을 받을 수 있는 곳 */
+  .help { list-style: none; margin: 0 0 12px; padding: 0; }
+  .help li { padding: 8px 0; }
+  .help b { display: block; font-weight: 500; }
+
+  footer { margin-top: 72px; border-top: var(--line) solid var(--ink); padding: 28px 0 40px; font-size: 14px; color: var(--muted); }
+  footer p { margin: 0 0 12px; }
+
+  @media (max-width: 600px) {
+    .intro { padding-top: 32px; }
+    h1 { font-size: 27px; }
+    h2 { font-size: 22px; }
+    .glance { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .facts div { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .vendor { padding: 16px 16px 8px; }
+    .toc { padding: 16px 16px 12px; }
+    pre.cmd { padding: 12px; }
+    pre.cmd code { font-size: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn { transition: none; }
+    .btn:hover, .btn:active { transform: none; }
+  }
+  @media print {
+    @page { margin: 16mm 14mm; }
+    body { background: var(--paper); font-size: 11pt; line-height: 1.6; }
+    header .btn, .pet { display: none; }
+    header { border-bottom-width: 1px; }
+    .doc { max-width: none; padding: 0; }
+    .toc, .vendor, .note { box-shadow: none; background: none; border-width: 1px; }
+    section { margin-top: 24px; padding-top: 16px; border-top-width: 1px; }
+    h2, h3, .vendor-head { break-after: avoid; }
+    .toc, .vendor, .glance li, ol.steps-list li, .facts div { break-inside: avoid; }
+    pre.cmd { background: none; color: var(--ink); border-width: 1px; }
+    code { background: none; }
+    main a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .85em; overflow-wrap: anywhere; }
+    footer { margin-top: 24px; border-top-width: 1px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="doc">
+    <a class="logo" href="./"><img class="px" src="sprites/stagep0.png" alt="">허피</a>
+    <a class="btn small" href="./#download">다운로드</a>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="intro">
+    <div class="title-row">
+      <div>
+        <h1>개인정보 처리방침</h1>
+        <p class="title-sub">허피가 다루는 정보</p>
+      </div>
+      <span class="pet"><img class="px" src="sprites/read-a.png" alt="" width="440" height="252"></span>
+    </div>
+    <p class="lead">허피는 계정이 없고 카메라 영상을 밖으로 보내지 않습니다. 그래도 앱과 사이트가 인터넷에 연결되는 순간이 있어서 무엇이 어디로 가는지 정리했습니다.</p>
+    <dl class="meta">
+      <div><dt>시행일</dt><dd>2026-11-10</dd></div>
+      <div><dt>운영자</dt><dd>aueoj</dd></div>
+    </dl>
+    <div class="note">
+      <p><b>문의와 요청</b>궁금한 점이나 열람·정정·삭제 요청은 <a href="mailto:yoonseul_ha@naver.com">yoonseul_ha@naver.com</a>으로 보내 주세요.</p>
+      <p><b>알려 드립니다</b>허피는 의료기기가 아니며 치료나 교정 효과를 보장하지 않습니다.</p>
+    </div>
+  </div>
+
+  <section id="summary" aria-labelledby="h-summary">
+    <h2 id="h-summary">한눈에 보기</h2>
+    <p class="sub">자세한 내용은 아래에 이어집니다.</p>
+    <ul class="glance">
+      <li><b>영상은 기기 안에서만</b><span>카메라 영상은 이 컴퓨터 안에서 자세를 판정하고 바로 버립니다. 저장하거나 보내지 않습니다.</span></li>
+      <li><b>계정 없음</b><span>가입과 로그인이 없고 이름이나 연락처를 묻지 않습니다.</span></li>
+      <li><b>의견은 보낼 때만</b><span>의견 폼에 직접 적고 제출한 내용만 폼 서비스 Tally에 저장됩니다.</span></li>
+      <li><b>사이트는 숫자만</b><span>방문 수와 다운로드 버튼 클릭 수를 쿠키 없이 셉니다.</span></li>
+    </ul>
+
+    <nav class="toc" aria-labelledby="h-toc">
+      <h2 id="h-toc">목차</h2>
+      <ol>
+        <li><a href="#data">처리하는 정보와 목적</a></li>
+        <li><a href="#retention">보관 기간</a></li>
+        <li><a href="#vendors">제3자 제공, 처리 위탁과 국외 이전</a></li>
+        <li><a href="#destroy">파기 절차와 방법</a></li>
+        <li><a href="#security">안전성 확보 조치</a></li>
+        <li><a href="#delete">기기에 남은 정보 지우기</a></li>
+        <li><a href="#rights">권리 행사와 문의</a></li>
+      </ol>
+    </nav>
+  </section>
+
+  <section id="data" aria-labelledby="h-data">
+    <h2 id="h-data">처리하는 정보와 목적</h2>
+    <p class="sub">허피가 처리하는 정보는 아래가 전부입니다.</p>
+
+    <h3>앱이 기기 안에 저장하는 것</h3>
+    <p>아래 정보는 사용자 기기에만 저장되고 운영자에게 전달되지 않습니다. 자세를 판정하고 펫을 키우는 데 씁니다.</p>
+    <ul class="plain">
+      <li>기억한 바른 자세. 얼굴의 위치·크기·각도를 나타내는 숫자입니다. 카메라가 바뀌면 다시 기억하도록 어떤 카메라로 기억했는지 구분하는 카메라 ID도 함께 저장합니다. 사진은 남기지 않습니다.</li>
+      <li>경험치와 진화 단계, 메뉴에서 고른 설정</li>
+      <li>날짜별 기록. 자세 체크 횟수와 그중 바른 자세였던 횟수, 교정한 횟수, 경고를 무시한 횟수, 스트레칭한 횟수와 건너뛴 횟수, 마지막으로 추정한 화면 거리입니다.</li>
+      <li>처음 쓴 날과 별점을 부탁했는지 여부</li>
+      <li>진단 기록. 메뉴에서 '진단 기록 남기기'를 켰을 때만 숫자로 남깁니다.</li>
+    </ul>
+
+    <h3>앱이 인터넷에 연결하는 때</h3>
+    <p>앱은 아래 경우에만 GitHub에 연결합니다. 모두 공개된 파일을 받아 오는 요청이고 사용자 정보를 실어 보내지 않습니다. 다만 요청을 받는 GitHub에는 IP 주소와 앱 이름 같은 요청 정보(User-Agent)가 전달될 수 있습니다.</p>
+    <ul class="plain">
+      <li>판정 기준과 대사 받기. 앱을 켤 때와 그 뒤 6시간마다 raw.githubusercontent.com에 연결합니다.</li>
+      <li>새 버전 확인. 하루 한 번 연결합니다. Mac은 raw.githubusercontent.com의 업데이트 목록을 봅니다. Windows는 api.github.com의 최신 릴리스 정보를 봅니다.</li>
+      <li>새 버전 내려받기. 사용자가 설치를 고르면 github.com에서 받습니다. Mac은 업데이트 창에서 '향후 업데이트 자동 다운로드 및 설치'를 켜면 그 뒤로는 묻지 않고 새 버전을 받아 설치합니다. 이 설정은 처음에 꺼져 있습니다. 다시 끄려면 터미널에서 아래 명령을 실행해 주세요.
+        <pre class="cmd"><code>defaults write com.posturepet.app SUAutomaticallyUpdate -bool false</code></pre>
+      </li>
+    </ul>
+
+    <h3>의견 보내기</h3>
+    <p>메뉴에서 '별점 남기기'나 '버그 신고하기'를 누르면 브라우저에서 Tally 폼이 열립니다. 제출 버튼을 누른 내용만 전달됩니다. 답장을 드리고 문제를 고치는 데 씁니다.</p>
+    <ul class="plain">
+      <li>별점 폼: 폼에 적은 내용</li>
+      <li>버그 폼: 폼에 적은 내용. 이메일과 첨부 파일은 선택 항목입니다.</li>
+      <li>두 폼 공통: 앱이 숨은 칸으로 채우는 앱 버전, 운영체제 버전, 진화 단계, 폼을 연 곳</li>
+    </ul>
+
+    <h3>이 사이트</h3>
+    <ul class="plain">
+      <li>방문 수와 다운로드 버튼 클릭 수를 GoatCounter로 셉니다. 쿠키를 쓰지 않습니다. GoatCounter는 IP 주소나 전체 User-Agent를 저장하지 않고 브라우저 종류나 운영체제, 국가처럼 합산된 숫자만 남긴다고 밝히고 있습니다.</li>
+      <li>최신 버전을 보여 드리려고 페이지를 열 때 api.github.com에서 릴리스 정보를 받습니다.</li>
+      <li>글꼴은 jsDelivr에서 받고 사이트는 GitHub Pages에서 제공됩니다.</li>
+    </ul>
+    <p>이때 각 업체에는 접속한 IP 주소와 브라우저 정보가 전달됩니다.</p>
+  </section>
+
+  <section id="retention" aria-labelledby="h-retention">
+    <h2 id="h-retention">보관 기간</h2>
+    <ul class="plain">
+      <li>기기에 저장된 정보는 사용자가 지울 때까지 기기에만 남습니다. 운영자는 볼 수 없습니다.</li>
+      <li>의견 폼으로 받은 내용은 답장과 문제 해결에만 쓰고 해결한 뒤 Tally에서 응답을 삭제합니다. 늦어도 6개월 안에 삭제합니다.</li>
+      <li>사이트 통계는 누구의 방문인지 알 수 없는 합산 숫자로만 남습니다. GoatCounter는 재방문을 구분하려고 IP 주소와 User-Agent 조합을 최대 8시간 메모리에만 두고 저장하지 않습니다.</li>
+      <li>GitHub와 jsDelivr의 접속 기록은 각 업체의 정책을 따릅니다. 운영자는 이 기록을 받지 않습니다.</li>
+    </ul>
+  </section>
+
+  <section id="vendors" aria-labelledby="h-vendors">
+    <h2 id="h-vendors">제3자 제공, 처리 위탁과 국외 이전</h2>
+    <p class="sub">허피는 개인정보를 제3자에게 제공하지 않습니다. 의견 폼은 Tally에 처리를 위탁하고 앱과 사이트는 아래 국외 업체에 연결합니다. 모두 해당 기능을 쓰는 순간 인터넷(HTTPS)으로 전달됩니다.</p>
+
+    <article class="vendor" aria-labelledby="v-tally">
+      <div class="vendor-head"><h3 id="v-tally">Tally BV (벨기에)</h3><span class="tag">처리 위탁</span></div>
+      <dl class="facts">
+        <div><dt>연락처</dt><dd><span class="addr">hello@tally.so</span><a href="https://tally.so/privacy">Tally 개인정보 처리방침</a></dd></div>
+        <div><dt>위탁 업무와 목적</dt><dd>의견 폼 응답을 받아 보관합니다. 답장과 문제 해결, 앱 개선에 씁니다.</dd></div>
+        <div><dt>이전 항목</dt><dd>폼에 적은 내용, 숨은 칸 정보(앱 버전, 운영체제 버전, 진화 단계, 폼을 연 곳), 폼을 열 때의 IP 주소와 브라우저 정보. 이메일과 첨부 파일은 적거나 올렸을 때만 전달됩니다.</dd></div>
+        <div><dt>시기와 방법</dt><dd>폼을 열고 제출할 때 브라우저에서 전달됩니다. Tally는 데이터를 EU 안의 서버에 저장한다고 밝히고 있습니다.</dd></div>
+        <div><dt>보유 기간</dt><dd>해결한 뒤 삭제하고 늦어도 6개월 안에 삭제합니다.</dd></div>
+        <div><dt>거부 방법과 결과</dt><dd>의견 폼을 쓰지 않으면 Tally로 가지 않습니다. 앱은 그대로 쓸 수 있습니다.</dd></div>
+      </dl>
+    </article>
+
+    <article class="vendor" aria-labelledby="v-github">
+      <div class="vendor-head"><h3 id="v-github">GitHub, Inc. (미국)</h3></div>
+      <dl class="facts">
+        <div><dt>연락처</dt><dd><span class="addr">privacy@github.com</span><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 개인정보 처리방침</a></dd></div>
+        <div><dt>목적</dt><dd>사이트 제공, 앱의 판정 기준과 새 버전 전달, 사이트의 최신 버전 표시</dd></div>
+        <div><dt>이전 항목</dt><dd>IP 주소, 앱 이름이나 브라우저 정보(User-Agent)</dd></div>
+        <div><dt>시기와 방법</dt><dd>앱을 켤 때와 6시간마다, 하루 한 번 새 버전을 확인할 때, 새 버전을 받을 때, 사이트를 열 때 연결하면서 전달됩니다.</dd></div>
+        <div><dt>보유 기간</dt><dd>GitHub 정책을 따릅니다.</dd></div>
+        <div><dt>거부 방법과 결과</dt><dd>방화벽 등으로 앱의 인터넷 연결을 막으면 GitHub로 가지 않습니다. 자세 체크와 펫은 그대로 쓸 수 있고 판정 기준 갱신과 새 버전 알림만 받지 못합니다.</dd></div>
+      </dl>
+    </article>
+
+    <article class="vendor" aria-labelledby="v-goat">
+      <div class="vendor-head"><h3 id="v-goat">GoatCounter (아일랜드)</h3></div>
+      <dl class="facts">
+        <div><dt>연락처</dt><dd><span class="addr">support@goatcounter.com</span><a href="https://www.goatcounter.com/help/privacy">GoatCounter 개인정보 처리방침</a></dd></div>
+        <div><dt>운영</dt><dd>Martin Tournoij가 운영하고 서버는 Hetzner의 핀란드·독일 서버입니다.</dd></div>
+        <div><dt>목적</dt><dd>사이트 방문 수와 다운로드 클릭 수 집계</dd></div>
+        <div><dt>이전 항목</dt><dd>본 페이지, 들어온 주소, IP 주소, 브라우저 정보</dd></div>
+        <div><dt>시기와 방법</dt><dd>소개 페이지를 열 때와 다운로드 버튼을 누를 때 브라우저에서 전달됩니다.</dd></div>
+        <div><dt>보유 기간</dt><dd>합산 통계만 저장합니다. IP 주소와 User-Agent 조합은 최대 8시간 메모리에만 둡니다.</dd></div>
+        <div><dt>거부 방법과 결과</dt><dd>브라우저나 확장 프로그램으로 <span class="url">huppy.goatcounter.com</span> 연결을 막으면 집계에서 빠집니다. 사이트는 그대로 쓸 수 있습니다.</dd></div>
+      </dl>
+    </article>
+
+    <article class="vendor" aria-labelledby="v-jsd">
+      <div class="vendor-head"><h3 id="v-jsd">Volentio JSD Limited (jsDelivr, 영국)</h3></div>
+      <dl class="facts">
+        <div><dt>연락처</dt><dd><span class="addr">legal@jsdelivr.com</span><a href="https://www.jsdelivr.com/terms/privacy-policy">jsDelivr 개인정보 처리방침</a></dd></div>
+        <div><dt>목적</dt><dd>사이트 글꼴 파일 전달</dd></div>
+        <div><dt>이전 항목</dt><dd>IP 주소, 브라우저 정보</dd></div>
+        <div><dt>시기와 방법</dt><dd>사이트를 열 때 글꼴을 받으면서 전달됩니다. Cloudflare, Fastly, Gcore의 전송망으로 가까운 나라의 서버에서 전달됩니다.</dd></div>
+        <div><dt>보유 기간</dt><dd>jsDelivr 정책을 따릅니다. 정책에는 정확한 기간이 적혀 있지 않습니다.</dd></div>
+        <div><dt>거부 방법과 결과</dt><dd>브라우저에서 외부 글꼴을 막으면 기본 글꼴로 보입니다. 사이트는 그대로 쓸 수 있습니다.</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section id="destroy" aria-labelledby="h-destroy">
+    <h2 id="h-destroy">파기 절차와 방법</h2>
+    <ul class="plain">
+      <li>의견 폼 응답은 답장과 문제 해결에만 쓰고 해결한 뒤 Tally에서 응답을 삭제합니다. 늦어도 6개월 안에 삭제합니다.</li>
+      <li>이메일로 받은 문의와 요청은 처리를 마친 뒤 메일함에서 삭제합니다.</li>
+      <li>기기에 저장된 정보는 운영자에게 오지 않아서 운영자가 지울 수 없습니다. 아래 <a href="#delete">'기기에 남은 정보 지우기'</a>를 따라 직접 지워 주세요.</li>
+    </ul>
+  </section>
+
+  <section id="security" aria-labelledby="h-security">
+    <h2 id="h-security">안전성 확보 조치</h2>
+    <ul class="plain">
+      <li>카메라 영상은 기기 안에서만 판정하고 저장하거나 기기 밖으로 보내지 않습니다.</li>
+      <li>개인정보를 모아 두는 운영자 서버가 없습니다. 기기에 저장되는 정보도 운영자에게 보내지 않습니다.</li>
+      <li>Tally 계정에는 운영자 한 명만 접근합니다.</li>
+      <li>앱과 사이트의 모든 연결은 HTTPS로 암호화됩니다.</li>
+      <li>Mac 새 버전은 운영자의 개인 키로 서명해서 서명이 맞지 않는 파일은 설치되지 않습니다.</li>
+    </ul>
+  </section>
+
+  <section id="delete" aria-labelledby="h-delete">
+    <h2 id="h-delete">기기에 남은 정보 지우기</h2>
+    <p class="sub">메뉴의 '기억한 방향' 안에 있는 '기억한 자세 모두 지우기'를 누르면 기억한 바른 자세가 지워집니다. 경험치와 설정까지 모두 지우려면 앱을 지운 뒤 남은 파일도 지워 주세요.</p>
+
+    <h3>Mac</h3>
+    <ol class="steps-list">
+      <li><p>허피를 종료하고 응용 프로그램 폴더에서 허피를 휴지통으로 옮겨 주세요.</p></li>
+      <li>
+        <p>터미널에서 아래 명령을 실행해 주세요.</p>
+        <pre class="cmd"><code>defaults delete com.posturepet.app</code></pre>
+        <p><code>~/Library/<wbr>Preferences/<wbr>com.posturepet.app.plist</code>에 담긴 기억한 자세, 경험치, 설정이 지워집니다.</p>
+      </li>
+      <li>
+        <p>Finder의 '이동 → 폴더로 이동'에서 아래 폴더를 하나씩 열어 지워 주세요. 없는 폴더는 건너뛰셔도 됩니다.</p>
+        <dl class="paths">
+          <div><dt><code>~/Library/<wbr>Logs/<wbr>PosturePet</code></dt><dd>진단 기록</dd></div>
+          <div><dt><code>~/Library/<wbr>Application Support/<wbr>PosturePet</code></dt><dd>예전 버전이 남긴 기록</dd></div>
+          <div><dt><code>~/Library/<wbr>Caches/<wbr>com.posturepet.app</code></dt><dd>macOS가 만든 연결 캐시</dd></div>
+          <div><dt><code>~/Library/<wbr>HTTPStorages/<wbr>com.posturepet.app</code></dt><dd>macOS가 만든 연결 캐시</dd></div>
+        </dl>
+      </li>
+    </ol>
+
+    <h3>Windows</h3>
+    <p>Windows판은 앱을 제거해도 경험치와 설정 파일이 PC에 남습니다. 아래처럼 직접 지워 주세요.</p>
+    <ol class="steps-list">
+      <li><p>설정 → 앱에서 허피를 찾아 제거해 주세요.</p></li>
+      <li><p>파일 탐색기 주소창에 <code>%APPDATA%</code>를 입력해 열고 <code>Huppy</code> 폴더를 지워 주세요. 설정, 경험치, 진단 기록이 모두 이 폴더에 있습니다.</p></li>
+      <li><p>예전 시험판을 쓰셨다면 같은 곳에 <code>PosturePet</code> 폴더가 남아 있을 수 있습니다. 있으면 함께 지워 주세요.</p></li>
+    </ol>
+  </section>
+
+  <section id="rights" aria-labelledby="h-rights">
+    <h2 id="h-rights">권리 행사와 문의</h2>
+    <p class="sub">언제든 내 정보의 열람·정정·삭제·처리 정지를 요청하실 수 있습니다.</p>
+    <ul class="plain">
+      <li>기기에 저장된 정보는 운영자에게 오지 않습니다. 위 방법으로 직접 지우실 수 있습니다.</li>
+      <li>의견 폼으로 보낸 내용은 <a href="mailto:yoonseul_ha@naver.com">yoonseul_ha@naver.com</a>으로 요청해 주세요. 보낸 날짜와 폼 종류를 함께 알려 주시면 빨리 찾을 수 있습니다. 요청을 받은 날부터 10일 안에 처리 결과를 알려 드립니다.</li>
+      <li>사이트 통계는 누구의 방문인지 구분할 수 없어서 개인별로 찾거나 지울 수 없습니다.</li>
+      <li>법정대리인이나 위임을 받은 대리인도 같은 방법으로 권리를 행사하실 수 있습니다.</li>
+    </ul>
+
+    <h3>만 14세 미만 아동</h3>
+    <p>허피는 만 14세 미만 아동의 개인정보를 따로 받지 않습니다. 만 14세 미만 아동의 법정대리인은 아동이 의견 폼으로 보낸 내용의 열람·정정·삭제를 위 이메일로 요청하실 수 있습니다.</p>
+
+    <h3>개인정보 보호책임자</h3>
+    <p>개인이 운영하는 서비스로 운영자 본인(aueoj)이 개인정보 보호책임자를 맡습니다. 연락처는 <a href="mailto:yoonseul_ha@naver.com">yoonseul_ha@naver.com</a>입니다.</p>
+
+    <h3>도움을 받을 수 있는 곳</h3>
+    <ul class="help">
+      <li><b>개인정보침해신고센터</b><a href="https://privacy.kisa.or.kr">privacy.kisa.or.kr</a><br>국번 없이 118</li>
+      <li><b>개인정보분쟁조정위원회</b><a href="https://www.kopico.go.kr">kopico.go.kr</a></li>
+    </ul>
+
+    <h3>방침이 바뀔 때</h3>
+    <p>내용을 바꾸면 이 페이지에 새 시행일과 함께 알려 드립니다.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="doc">
+    <p>허리피라우[허피]<br><a href="./">소개 페이지로</a></p>
+    <p>허피는 의료기기가 아니며 치료나 교정 효과를 보장하지 않습니다.</p>
+    <p>캐릭터는 Anthropic Claude Code의 마스코트 Clawd를 바탕으로 만든 팬메이드예요. Anthropic과는 관계없는 개인 프로젝트예요.</p>
+    <p>글꼴 <a href="https://github.com/quiple/galmuri">Galmuri</a>, <a href="https://freesentation.blog/">Freesentation</a> (SIL OFL)</p>
+  </div>
+</footer>
+
+</body>
+</html>

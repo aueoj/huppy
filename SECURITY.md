@@ -60,8 +60,7 @@
 
 | 위치 | 내용 |
 |---|---|
-| `~/Library/Preferences/com.posturepet.app.plist` | 기준 자세 숫자(얼굴 위치·크기·각도 9개 값), 경험치와 그 서명, 메뉴 설정, 날짜별 교정·스트레칭 횟수, 받아 둔 설정 파일, 마지막 업데이트 확인 시각, 처음 쓴 날과 별점 부탁 여부 |
-| `~/Library/Application Support/PosturePet/history.json` | 체크 시각, 구간(바름·주의·무너짐), 가장 많이 벗어난 지표, 추정 화면 거리. 30일 지나면 지워요 |
+| `~/Library/Preferences/com.posturepet.app.plist` | 기준 자세 숫자(얼굴 위치·크기·각도 9개 값), 경험치와 그 서명, 메뉴 설정, 날짜별 교정·스트레칭·자세 체크 횟수와 그날 마지막 추정 화면 거리, 받아 둔 설정 파일, 마지막 업데이트 확인 시각, 처음 쓴 날과 별점 부탁 여부 |
 | `~/Library/Logs/PosturePet/diagnostic.log` | 사용자가 메뉴에서 켰을 때만. 숫자만 남아요 |
 
 **저장하지 않는 것:** 사진, 영상, 얼굴 이미지, 이름, 이메일, 계정, 기기 식별자.
@@ -85,7 +84,7 @@ Mac판과 판정·대사·저장하는 내용이 같고, 만든 방식만 달라
 | 카메라 영상 | 이 PC 안에서 MediaPipe 로 분석하고 바로 버려요. 저장도 전송도 하지 않아요 |
 | 외부 통신 | 설정 파일(`raw.githubusercontent.com/aueoj/huppy/main/remote-config.json`)과 새 버전 확인(`api.github.com/repos/aueoj/huppy/releases/latest`), 받기만 해요. 별점·버그 폼은 사용자가 고를 때만 브라우저로 열어요 |
 | 새 버전 | 자동 설치 없음. 펫이 알려주고, 사용자가 "받기"를 누르면 브라우저로 설치 파일을 받아요 |
-| 저장 위치 | `%APPDATA%\Huppy\` 의 `settings.json`(설정·경험치와 서명), `history.json`(30일), `logs\diagnostic.log`(켰을 때만, 5MB 넘으면 교체) |
+| 저장 위치 | `%APPDATA%\Huppy\` 의 `settings.json`(설정·경험치와 서명, 날짜별 횟수와 그날 마지막 추정 화면 거리), `logs\diagnostic.log`(켰을 때만, 5MB 넘으면 교체) |
 
 - MediaPipe 라이브러리는 기본으로 Google 에 사용 통계를 보내려고 해요(`odml.pa.googleapis.com`). 펫 화면의 보안 정책(CSP)이 앱 밖으로 나가는 연결을 전부 막아서 실제로는 나가지 않아요. 개발 중 실행 기록에서 막힌 것을 확인했어요.
 - 펫 화면은 Node·파일에 직접 손댈 수 없고(contextIsolation, sandbox), 정해 둔 기능만 main 프로세스에 요청해요. 카메라 권한은 펫 화면에만 주고 다른 권한은 전부 거절해요.
@@ -101,7 +100,8 @@ Mac판과 판정·대사·저장하는 내용이 같고, 만든 방식만 달라
 
 - 공개 저장소(`aueoj/huppy`, 옛 주소 `aueoj/posture-pet`)는 main 브랜치 강제 덮어쓰기·삭제와 릴리스 태그(`v*`) 삭제·덮어쓰기를 막아 뒀어요.
 - 소스 코드는 비공개 저장소에만 있고, 공개 저장소의 이력 전체에도 소스가 없어요. 공개 저장소에 올리는 스크립트는 정해 둔 파일만 올리고, 소스가 섞이면 멈춰요.
-- 다운로드 사이트는 보안 정책(CSP)으로 우리 스크립트와 GitHub API 외의 연결을 막고, 외부 글꼴 파일은 해시(SRI)가 맞을 때만 써요.
+- 다운로드 사이트는 보안 정책(CSP)으로 정해 둔 곳 외의 연결을 막아요. 스크립트는 우리 것만 돌고, 데이터 요청은 GitHub API(최신 버전 표시)뿐이고, 방문 수와 다운로드 클릭 수는 GoatCounter(`huppy.goatcounter.com`)에 이미지 요청으로 보내요(쿠키 없음).
+- 외부 글꼴은 jsDelivr 에서만 받아요. Galmuri 글꼴 CSS 는 해시(SRI)가 맞을 때만 쓰고, 글꼴 파일 자체(Galmuri, Freesentation)는 SRI 를 걸 수 없어서 버전이나 커밋을 고정한 주소로 받아요.
 - Mac 업데이트는 개발자 Mac의 개인 키로 서명해서, 저장소가 털려도 가짜 업데이트는 설치되지 않아요. 받아 오는 원격 설정은 512KB 를 넘으면 버리고 값 범위를 잘라서 써요.
 - 남은 위험: GitHub 계정이 털리면 사이트와 Windows 설치 파일은 바꿔치기될 수 있어요. GitHub 2단계 인증을 꼭 켜 두세요. Windows 코드 서명 인증서가 있으면 이것도 막을 수 있어요.
 
